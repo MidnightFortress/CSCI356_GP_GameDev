@@ -5825,10 +5825,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1335918204}
   - component: {fileID: 1335918206}
-  - component: {fileID: 1335918205}
   m_Layer: 0
   m_Name: Ladder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5862,18 +5861,6 @@ Transform:
   m_Father: {fileID: 583342358}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1335918205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335918203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc00a2c02546d4b65bd5793ec034b00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1335918206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5889,12 +5876,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 5.88, z: 0.19}
-  m_Center: {x: 0, y: -2.79, z: -0.2}
+  m_Size: {x: 1, y: 5.88, z: 0.38}
+  m_Center: {x: -0.03, y: -2.31, z: -0.32}
 --- !u!1 &1338160082
 GameObject:
   m_ObjectHideFlags: 0
@@ -9147,9 +9134,10 @@ GameObject:
   - component: {fileID: 2134088300}
   - component: {fileID: 2134088299}
   - component: {fileID: 2134088298}
+  - component: {fileID: 2134088305}
   m_Layer: 0
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9186,6 +9174,7 @@ MonoBehaviour:
   speed: 6
   gravity: -9.8
   jumpSpeed: 15
+  vertSpeed: 0
 --- !u!143 &2134088300
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9301,6 +9290,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2134088305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134088297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e126a5e11c4a4c2baa54f2dfeeccb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charController: {fileID: 0}
+  climbSpeed: 3
+  FPSInput: {fileID: 0}
 --- !u!1 &2135818091
 GameObject:
   m_ObjectHideFlags: 0

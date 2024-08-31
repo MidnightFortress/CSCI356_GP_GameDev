@@ -17,7 +17,7 @@ public class FPSInput : MonoBehaviour
     public float jumpSpeed = 15.0f;
     private float terminalVelocity = -20.0f;
 
-    private float vertSpeed; // variable that will change player veticle speed based on state (i.e. jumping, falling, on ground)
+    public float vertSpeed; // variable that will change player vertical speed based on state (i.e. jumping, falling, on ground)
 
     // Start is called before the first frame update
     void Start()
