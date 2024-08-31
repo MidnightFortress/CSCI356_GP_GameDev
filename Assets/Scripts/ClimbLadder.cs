@@ -20,8 +20,6 @@ public class ClimbLadder : MonoBehaviour
     {
         if (other.gameObject.tag == "Ladder")
         {
-            Debug.Log("Climb Ladder");
-
             // disable the FPSInput script control
             FPSInput.enabled = false;
             onLadder = true;
@@ -32,8 +30,6 @@ public class ClimbLadder : MonoBehaviour
     {
         if (other.gameObject.tag == "Ladder")
         {
-            Debug.Log("Get Off Ladder");
-
             // enable the FPSInput Script control
             FPSInput.enabled = true;
             onLadder = false;
@@ -44,12 +40,12 @@ public class ClimbLadder : MonoBehaviour
     void Update()
     {
         // specify the replacement controls when on ladder
-        if (onLadder && Input.GetAxis("Vertical") == 1)
+        if (onLadder && Input.GetAxis("Vertical") == 1) // 1 = move up ladder
         {
             charController.transform.position += (Vector3.up * climbSpeed) * Time.deltaTime;
         }
 
-        if (onLadder && Input.GetAxis("Vertical") == -1)
+        if (onLadder && Input.GetAxis("Vertical") == -1) // -1 = move down ladder
         {
             charController.transform.position += (Vector3.down * climbSpeed) * Time.deltaTime;
         }
