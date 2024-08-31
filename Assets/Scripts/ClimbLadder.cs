@@ -18,7 +18,7 @@ public class ClimbLadder : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ladder")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             // disable the FPSInput script control
             FPSInput.enabled = false;
@@ -28,7 +28,7 @@ public class ClimbLadder : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Ladder")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             // enable the FPSInput Script control
             FPSInput.enabled = true;
