@@ -1,72 +1,86 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))] // enforces dependency on character controller
-[AddComponentMenu("Control Script/FPS Input")]  // add to the Unity editor's component menu
+[RequireComponent(typeof(CharacterController))]
+[AddComponentMenu("Control Script")]
 public class FPSInput : MonoBehaviour
 {
-    // movement sensitivity
-    public float speed = 6.0f;
+    // Movement  speed
+    public float moveSpeed = 9f;
+    private float horizontalSpeed = 0.0f;
+    private float verticalSpeed = 0.0f;
 
-    // reference to the character controller
-    private CharacterController charController;
-
-    // jump related variables
+    // Gravity (acceleration)
     public float gravity = -9.8f;
-    public float jumpSpeed = 15.0f;
-    private float terminalVelocity = -20.0f;
+    public float jumpSpeed = 9.8f; // jump speed
+    private float upDownSpeed = 0; // vertical speed
 
-    public float vertSpeed; // variable that will change player vertical speed based on state (i.e. jumping, falling, on ground)
+    // Number of Jumps before touching ground
+    public int airJump = 1; // max jumps befoe needing to touch the ground
+    public int jumpCount = 0; // the current number of jumps
+
+    // Character Controller
+    private CharacterController characterControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        // get the character controller component
-        charController = GetComponent<CharacterController>();
+        //getting the character controller compnent
+        characterControl = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // input functionality to employ jumping
-        if (Input.GetButtonDown("Jump") && charController.isGrounded)
+        // Getting key input
+        if (characterControl.isGrounded)
         {
-            // if player on ground allow jumping
-            vertSpeed = jumpSpeed;
+            horizontalSpeed = Input.GetAxis("Horizontal") * moveSpeed; // horizontal input
+            verticalSpeed = Input.GetAxis("Vertical") * moveSpeed; //vertical input
         }
-        else if (!charController.isGrounded)
-        {
-            // if player not grounded i.e., cannot jump
-            vertSpeed += gravity * 3 * Time.deltaTime; // increase acceleration due to gravity
 
-            // ensure fall speed does not exceed terminal velocity
-            if (vertSpeed < terminalVelocity)
+        // determining if jump
+        if (Input.GetButtonDown("Jump") && jumpCount < airJump) // jump input
+        {
+            // so you can change directions in mid air using the jump
+            if (!characterControl.isGrounded)
             {
-                // set vert speed to terminal velocity
-                vertSpeed = terminalVelocity;
+                horizontalSpeed = Input.GetAxis("Horizontal") * moveSpeed; // horizontal input
+                verticalSpeed = Input.GetAxis("Vertical") * moveSpeed; //vertical input
             }
+
+            upDownSpeed = (jumpSpeed); // + gravity); // adding upward speed... do i really need to include gravity... its speed not a force... so no... i guess
+            jumpCount++; // jump count to count the number of times the player has jumped in mid air
+        }
+        else if (!characterControl.isGrounded) // only apply this when in the air otherwise player keeps acellerating faster into the ground when on the ground
+        {
+            upDownSpeed = upDownSpeed + gravity * Time.deltaTime; // to apply a gradual accrelleration down
         }
 
+        if (jumpCount != 0 && characterControl.isGrounded) // reseeting the air jump counter when touching the ground... need to figure out how to not have the reset when touching walls
+        {
+            jumpCount = 0;
+        }
 
-        // changes based on WASD keys
-        float deltaX = Input.GetAxis("Horizontal") * speed;
-        float deltaZ = Input.GetAxis("Vertical") * speed;
-        Vector3 movement = new Vector3(deltaX, 0, deltaZ);
+        // applying movement
+        Vector3 move = new Vector3(horizontalSpeed, upDownSpeed, verticalSpeed);
 
-        // make diagonal movement consistent
-        movement = Vector3.ClampMagnitude(movement, speed);
+        // How the shit Do I make Diagonals work.....
+        move = Vector3.ClampMagnitude(move, moveSpeed); // I think this works... will this make diagonals the same speed...
 
-        // add the vert speed to the y dimension of the movement vector
-        movement.y = vertSpeed;
+        move *= Time.deltaTime; // Making movement independent of frame rate
 
-        // ensure movement is independent of the framerate
-        movement *= Time.deltaTime;
+        move = transform.TransformDirection(move); // converting movement ot global space
 
-        // transform from local space to global space
-        movement = transform.TransformDirection(movement);
+        characterControl.Move(move); // passing to the Charicter Controller
 
-        // pass the movement to the character controller
-        charController.Move(movement);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        jumpCount = 0;
+        upDownSpeed = 0;
     }
 }
