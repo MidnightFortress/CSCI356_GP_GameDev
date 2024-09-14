@@ -10,7 +10,7 @@ public class FPSInput : MonoBehaviour
     // Variables which can be modified in editor
     public int jumpMax = 2; // The number of times able to jump before needing to touch the ground again
     public float playerSpeed = 5.0f; // speed for player movement
-    public float jumpHeight = 5.0f; //how high to jump
+    public float jumpHeight = 0.5f; //how high to jump
     public float gravity = -9.8f; // Gravity Strength
 
     //Internal Variables
@@ -29,7 +29,7 @@ public class FPSInput : MonoBehaviour
     private void Update()
     {
         // Getting movement Direction and moveing the character
-        Vector3 move = move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         move = transform.TransformDirection(move); // transform direction to relative to camera direction
 
         // Resetting values when touching the ground
