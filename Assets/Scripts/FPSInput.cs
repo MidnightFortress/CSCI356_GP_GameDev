@@ -4,64 +4,57 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-[AddComponentMenu("Control Script/FPS Input")]
+[AddComponentMenu("Control Script")]
 public class FPSInput : MonoBehaviour
 {
-    public float speed = 8.0f;
-    private CharacterController character;
-    [SerializeField] public float jumpSpeed = 15.0f;
-    public float gravity = -9.8f;
-    public float terminalVelocity = -20.0f;
-    private float vertSpeed;
-    public int jumpCount = 0;
-    [SerializeField] public int maxJump = 2;
+    // Variables which can be modified in editor
+    public int jumpMax = 2; // The number of times able to jump before needing to touch the ground again
+    public float playerSpeed = 5.0f; // speed for player movement
+    public float jumpHeight = 5.0f; //how high to jump
+    public float gravity = -9.8f; // Gravity Strength
 
-    // Start is called before the first frame update
-    void Start()
+    //Internal Variables
+    public int airJump = 0; // Count of how many times character jumped since touching the ground
+    private CharacterController charControl; // the controler for the character
+    private Vector3 playerVelocity; // how fast the player moves
+    private bool grounded; // is the character on the ground
+
+    //Activation when the object is created
+    private void Start()
     {
-        character = GetComponent<CharacterController>();
+        charControl = gameObject.GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Updating on each frame
+    private void Update()
     {
-        float dx = Input.GetAxis("Horizontal") * speed;
-        float dz = Input.GetAxis("Vertical") * speed;
-        Vector3 movementVec = new Vector3(dx, 0, dz);
-        // puting the delta x and y in the vector
+        // Getting movement Direction and moveing the character
+        Vector3 move = move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        move = transform.TransformDirection(move); // transform direction to relative to camera direction
 
-        movementVec = Vector3.ClampMagnitude(movementVec, speed);
-        // have to clamp the movementr speed so there is no exponential growt
-
-        movementVec = transform.TransformDirection(movementVec);
-
-        if (character.isGrounded)
+        // Resetting values when touching the ground
+        grounded = charControl.isGrounded;
+        if(grounded && playerVelocity.y < 0)
         {
-            jumpCount = 0;
-            vertSpeed = 0;
+            airJump = 0;
+            playerVelocity = Vector3.zero;
         }
 
-        if (Input.GetButtonDown("Jump") && jumpCount <= maxJump)
+        // move when on the ground
+        if (grounded)
         {
-            vertSpeed += jumpSpeed;
-            jumpCount++;
+            charControl.Move(move * Time.deltaTime * playerSpeed);
         }
-        else if (!character.isGrounded)
+
+        // UpDown Movement of player
+        if (Input.GetButtonDown("Jump") && airJump < jumpMax)
         {
-            vertSpeed += gravity * 5 * Time.deltaTime;
-            if (vertSpeed < terminalVelocity)
-            {
-                vertSpeed = terminalVelocity;
-
-            }
+            airJump++; // counting jumps
+            playerVelocity = move; // direction the player is moving in the
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity); // attempting to make an arc in movement
         }
-        // this is the double jump logic, it doesnt allow for more than 2 jumps, will reset the count on the ground. 
-        // gets the power and does the math to clamp the sped for terminal velocity
 
-        movementVec.y = vertSpeed;
-
-        movementVec *= Time.deltaTime;
-        character.Move(movementVec);
+        playerVelocity.y += gravity * Time.deltaTime; // accellerating the player down
+        charControl.Move(playerVelocity * Time.deltaTime * playerSpeed); // moving the player in preconfigured direction
     }
-
 }
