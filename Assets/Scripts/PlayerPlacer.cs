@@ -24,10 +24,10 @@ public class PlayerPlacer : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
-        switch (scene.buildIndex)
+     /*   switch (scene.buildIndex)
         {
             case 0: // First scene
-                startPos = new Vector3(138.3f, 57.94f, 159.08f); // Example position
+                startPos = new Vector3(131.27f, 53.28f, 138.41f); // Example position
                 break;
             case 1: // Second scene
                 startPos = new Vector3(128.34f, 57.94f, 151.1f); // Example position
@@ -36,7 +36,7 @@ public class PlayerPlacer : MonoBehaviour
                 Debug.Log("Defaut");
                 startPos = defaultStartPos; // Use default start position
                 break;
-        }
+        }*/
 
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)

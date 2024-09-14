@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextScene : MonoBehaviour, Interactable
 {
+    public AsyncSceneLoader asyncSceneLoader;
     public void Interact()
     {
         Debug.Log("Button Works");
@@ -16,9 +17,16 @@ public class LoadNextScene : MonoBehaviour, Interactable
             Time.timeScale = 1;
         }
 
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex +1);
+        if (asyncSceneLoader != null)
+        {
+            asyncSceneLoader.ActivateScene();
+        }
+        else
+        {
+            Debug.LogError("AsyncSceneLoader is not assigned!");
+        }
 
-        
-      
+
+
     } 
 }
