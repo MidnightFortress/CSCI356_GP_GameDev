@@ -24,30 +24,49 @@ public class PlayerPlacer : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
-     /*   switch (scene.buildIndex)
-        {
-            case 0: // First scene
-                startPos = new Vector3(131.27f, 53.28f, 138.41f); // Example position
-                break;
-            case 1: // Second scene
-                startPos = new Vector3(128.34f, 57.94f, 151.1f); // Example position
-                break;
-            default:
-                Debug.Log("Defaut");
-                startPos = defaultStartPos; // Use default start position
-                break;
-        }*/
+        /*   switch (scene.buildIndex)
+           {
+               case 0: // First scene
+                   startPos = new Vector3(131.27f, 53.28f, 138.41f); // Example position
+                   break;
+               case 1: // Second scene
+                   startPos = new Vector3(128.34f, 57.94f, 151.1f); // Example position
+                   break;
+               default:
+                   Debug.Log("Defaut");
+                   startPos = defaultStartPos; // Use default start position
+                   break;
+           }*/
 
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
+        /* GameObject player = GameObject.FindWithTag("Player");
+         if (player != null)
+         {
+             Debug.Log("Original Player Position: " + player.transform.position);
+             player.transform.position = startPos;
+             Debug.Log("Player Placed at: " + startPos);
+         }
+         else
+         {
+             Debug.LogError("Player not found in the scene.");
+         }
+     }*/
+        GameObject playerPlacerObject = GameObject.FindWithTag("Respawn");
+        if (playerPlacerObject != null)
         {
-            Debug.Log("Original Player Position: " + player.transform.position);
-            player.transform.position = startPos;
-            Debug.Log("Player Placed at: " + startPos);
+            PlayerPlacer playerPlacer = playerPlacerObject.GetComponent<PlayerPlacer>();
+            if (playerPlacer != null)
+            {
+                // Optionally call a method or handle the PlayerPlacer instance
+                Debug.Log("PlayerPlacer found and accessed.");
+            }
+            else
+            {
+                Debug.LogError("PlayerPlacer script not found on the GameObject with 'Respawn' tag.");
+            }
         }
         else
         {
-            Debug.LogError("Player not found in the scene.");
+            Debug.LogError("No GameObject with 'Respawn' tag found in the scene.");
         }
     }
 }

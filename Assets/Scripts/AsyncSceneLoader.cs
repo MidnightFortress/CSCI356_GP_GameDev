@@ -22,18 +22,39 @@ public class AsyncSceneLoader : MonoBehaviour
     {
         
         asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
-        asyncOperation.allowSceneActivation = false; 
+        asyncOperation.allowSceneActivation = false;
 
-       
-        while (asyncOperation.progress < 0.9f)
+        /*
+         while (asyncOperation.progress < 0.9f)
+         {
+             yield return null; 
+         }
+
+
+         isSceneReady = true;
+         Debug.Log("Scene is ready. Press the button to load it.");*/
+
+        while (!asyncOperation.isDone)
         {
-            yield return null; 
-        }
+            Debug.Log("Loading progress: " + asyncOperation.progress);
 
-        
-        isSceneReady = true;
-        Debug.Log("Scene is ready. Press the button to load it.");
-    }
+            // Check if the scene is loaded (progress is 0.9 when loading is complete)
+            if (asyncOperation.progress >= 0.9f)
+            {
+                Debug.Log("Scene loaded, activating...");
+                asyncOperation.allowSceneActivation = true;
+            }
+
+
+            while (asyncOperation.progress < 0.9f)
+            {
+                yield return null;
+            }
+
+            isSceneReady = true;
+            Debug.Log("Scene is ready. Press the button to load it."); 
+        }
+        }
 
     public void ActivateScene()
     {
