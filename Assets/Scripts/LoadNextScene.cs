@@ -11,11 +11,11 @@ public class LoadNextScene : MonoBehaviour, Interactable
         Debug.Log("Button Works");
 
 
-        // Unpause the game if it's paused before loading the next scene
+      /*  // Unpause the game if it's paused before loading the next scene
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
-        }
+        }*/
 
         if (asyncSceneLoader != null)
         {

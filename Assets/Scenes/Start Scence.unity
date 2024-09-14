@@ -7941,7 +7941,7 @@ Transform:
   m_GameObject: {fileID: 1157463780}
   m_LocalRotation: {x: -0.015101599, y: -0.99729687, z: 0.0062521216, w: -0.071636215}
   m_LocalPosition: {x: 7.01, y: 48.79, z: 7.12}
-  m_LocalScale: {x: -6.8963747, y: 1, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 951826375}
@@ -10126,7 +10126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteracterSource: {fileID: 1692817278}
-  InteractRange: 3
+  InteractRange: 6
 --- !u!1 &1697866940
 GameObject:
   m_ObjectHideFlags: 0
@@ -10260,7 +10260,7 @@ Transform:
   m_GameObject: {fileID: 1702719527}
   m_LocalRotation: {x: -0.01497543, y: -0.7430409, z: -0.006548572, w: 0.6690464}
   m_LocalPosition: {x: -0.42, y: 50.68, z: -6.75}
-  m_LocalScale: {x: -6.8963747, y: 1, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 951826375}
