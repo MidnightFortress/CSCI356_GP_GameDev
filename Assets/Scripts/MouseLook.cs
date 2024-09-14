@@ -5,6 +5,8 @@ using UnityEngine;
 [AddComponentMenu("Mouse Look")]
 public class MouseLook: MonoBehaviour
 {
+
+    Camera cam;
     // how quickly to look arouund
     public enum RotationA
     {
@@ -31,6 +33,8 @@ public class MouseLook: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
+
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
         {
@@ -38,6 +42,19 @@ public class MouseLook: MonoBehaviour
         }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    void OnGUI()
+    {
+        // this was all from previous labs
+        int size = 12;
+
+        // centre of screen and caters for font size
+        float posX = cam.pixelWidth / 2 - size / 4;
+        float posY = cam.pixelHeight / 2 - size / 2;
+
+        // displays "+" on screen
+        GUI.Label(new Rect(posX, posY, size, size), "+");
     }
 
     // Update is called once per framea

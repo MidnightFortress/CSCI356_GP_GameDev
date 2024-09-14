@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,35 +12,40 @@ public class AsyncSceneLoader : MonoBehaviour
     private bool isSceneReady = false;
 
     private void OnTriggerEnter(Collider other)
-    {
+    { // Unpause the game if it's paused before loading the next scene
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+      
         if (other.CompareTag("Player")) 
         {
-            StartCoroutine(LoadSceneAsync());
+            StartCoroutine(LoadSceneAsyncCor());
         }
     }
 
-    private IEnumerator LoadSceneAsync()
+    private IEnumerator LoadSceneAsyncCor()
     {
-        
+      
         asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
-        asyncOperation.allowSceneActivation = false; 
+           asyncOperation.allowSceneActivation = false;
 
-       
+            Debug.Log(asyncOperation.progress);
+
         while (asyncOperation.progress < 0.9f)
-        {
-            yield return null; 
-        }
-
-        
-        isSceneReady = true;
+            yield return null;
+       
         Debug.Log("Scene is ready. Press the button to load it.");
+
+
     }
+
 
     public void ActivateScene()
     {
-        if (isSceneReady)
-        {
-            asyncOperation.allowSceneActivation = true;
-        }
+
+        asyncOperation.allowSceneActivation = true;
     }
+      
 }
