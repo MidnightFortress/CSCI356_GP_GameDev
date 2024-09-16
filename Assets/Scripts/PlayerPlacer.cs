@@ -1,64 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerPlacer : MonoBehaviour
 {
-    
-     private Vector3 startPos;
-    [SerializeField] private Vector3 defaultStartPos;
+    private Vector3 startPos;
+    private bool hasPlacedPlayer = false; 
+    private Quaternion startRot;
 
     private void OnEnable()
     {
-        
         SceneManager.sceneLoaded += OnSceneLoaded;
-           
-        
-        // Subscribe to the sceneLoaded event
-       
     }
 
     private void OnDisable()
     {
-        // Unsubscribe to prevent memory leaks
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    // loading and deleteling the scenes
 
-    // Called when a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        hasPlacedPlayer = false;
+        // placed a bool because it was sometimes placing teh player twice
 
-        Debug.Log("on Scene");
-
-        startPos = transform.position;
-
-        Debug.Log("StartPos from attached object: " + startPos);
-       
-        StartCoroutine(PlacePlayerAfterDelay());
-        
-    }
-
-    private IEnumerator PlacePlayerAfterDelay()
-    {
-        yield return null;
-
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
+        GameObject respawnObject = GameObject.FindGameObjectWithTag("Respawn");
+        if (respawnObject != null)
         {
-            // Log the player's original position
-            Debug.Log("Original Player Position before placement: " + player.transform.position);
+            PlayerPlacer respawnPlacer = respawnObject.GetComponent<PlayerPlacer>();
+            if (respawnPlacer != null)
+            {
+                startPos = respawnObject.transform.position;
+                startRot = respawnObject.transform.rotation;
+                Debug.Log("StartPos from Respawn object: " + startPos);
+                // finding the spawn point, as i tagged it as respwan
 
-            // Set the player's position to the startPos (the position of the GameObject this script is attached to)
-            player.transform.position = startPos;
+                GameObject player = GameObject.FindWithTag("Player");
+                if (player != null)
+                {
+                    Debug.Log("Original Player Position before placement: " + player.transform.position);
 
-            // Log the new player position
-            Debug.Log("Player Placed at: " + startPos);
+                    player.transform.position = startPos;
+                    player.transform.rotation = startRot;
+
+                    Debug.Log("Player Placed at: " + startPos);
+
+                    Debug.Log("Actual Player Position after placement: " + player.transform.position);
+
+                    hasPlacedPlayer = true;
+                    // this if gets the player and places them in the spawn point. tyhere is a bit of debugging as well, to make sure it is working
+                    // had a bit of a problem with this as sometimes it works sometimes it doesnt. If it doesnt work it just leaves the player in the same position as scene 1
+                    // to counter this i moved scene 1 to the dsame position as scene 2, so if it doenst work it should hopefully drop the player in the same room in scene 2
+                }
+                else
+                {
+                    Debug.LogError("Player not found in the scene.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Respawn object does not have the PlayerPlacer script.");
+            }
         }
         else
         {
-            Debug.LogError("Player not found in the scene.");
+            Debug.LogError("No object tagged 'Respawn' found in the scene.");
         }
+        // extra debugs
     }
-
 }
+

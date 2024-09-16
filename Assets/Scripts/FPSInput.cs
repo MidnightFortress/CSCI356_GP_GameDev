@@ -18,7 +18,7 @@ public class FPSInput : MonoBehaviour
     private CharacterController charControl; // the controler for the character
     private Vector3 playerVelocity; // how fast the player moves
     private bool grounded; // is the character on the ground
-    public float fallDisable = 0.2f; // Time the character is fall till controls diabled
+    public float fallDisable = 1.0f; // Time the character is fall till controls diabled
     private float fallTimer = 0.0f; // time the character has been falling
 
     //Activation when the object is created
