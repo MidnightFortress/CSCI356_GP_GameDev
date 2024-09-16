@@ -34,10 +34,15 @@ public class FPSInput : MonoBehaviour
 
         // Resetting values when touching the ground
         grounded = charControl.isGrounded;
-        if(grounded && playerVelocity.y < 0)
+        if(grounded)
         {
-            airJump = 0;
-            playerVelocity = Vector3.zero;
+            if (playerVelocity.y < 0)
+            {
+                airJump = 0;
+                playerVelocity = Vector3.zero;
+            }
+
+            charControl.Move(move * Time.deltaTime * playerSpeed);
         }
 
         // move when on the ground
