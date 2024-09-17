@@ -9,20 +9,33 @@ public class AsyncSceneLoader : MonoBehaviour
 
     private AsyncOperation asyncOperation;
     public string sceneToLoad;
-    private bool isSceneReady = false;
+    private bool alreadyLoaded = false;
 
     private void OnTriggerEnter(Collider other)
-    { // Unpause the game if it's paused before loading the next scene
+    { 
 
         if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
-      
+
+
         if (other.CompareTag("Player")) 
         {
+           
+
+            if (!alreadyLoaded)
+            {
+ alreadyLoaded = true;  
             StartCoroutine(LoadSceneAsyncCor());
+            }
+
+           
+
+            
         }
+        
+
     }
 
     private IEnumerator LoadSceneAsyncCor()

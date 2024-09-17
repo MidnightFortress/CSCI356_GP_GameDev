@@ -14,10 +14,12 @@ public class FPSInput : MonoBehaviour
     public float gravity = -9.8f; // Gravity Strength
 
     //Internal Variables
-    public int airJump = 0; // Count of how many times character jumped since touching the ground
+    private int airJump = 0; // Count of how many times character jumped since touching the ground
     private CharacterController charControl; // the controler for the character
     private Vector3 playerVelocity; // how fast the player moves
     private bool grounded; // is the character on the ground
+    public float fallDisable = 1.0f; // Time the character is fall till controls diabled
+    private float fallTimer = 0.0f; // time the character has been falling
 
     //Activation when the object is created
     private void Start()
@@ -34,22 +36,28 @@ public class FPSInput : MonoBehaviour
 
         // Resetting values when touching the ground
         grounded = charControl.isGrounded;
-        if(grounded)
-        {
-            if (playerVelocity.y < 0)
+	
+	// Determining if the character is falling or walking down a incline
+	if(!grounded)
+	{
+	    fallTimer += Time.deltaTime;
+	}
+	else
+	{
+	   fallTimer = 0.0f;
+	}
+
+	
+	if(fallTimer < fallDisable)
+	{
+       	    if(playerVelocity.y < 0)
             {
-                airJump = 0;
-                playerVelocity = Vector3.zero;
+		airJump = 0;
+		playerVelocity = Vector3.zero;
             }
-
+            // move when on the ground
             charControl.Move(move * Time.deltaTime * playerSpeed);
-        }
-
-        // move when on the ground
-        if (grounded)
-        {
-            charControl.Move(move * Time.deltaTime * playerSpeed);
-        }
+	}
 
         // UpDown Movement of player
         if (Input.GetButtonDown("Jump") && airJump < jumpMax)
