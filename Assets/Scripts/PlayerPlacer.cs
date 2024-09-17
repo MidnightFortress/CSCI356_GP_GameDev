@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerPlacer : MonoBehaviour
 {
     
-    [SerializeField] private Vector3 startPos;
+     private Vector3 startPos;
     [SerializeField] private Vector3 defaultStartPos;
-    private bool hasPlacedPlayer = false;
 
     private void OnEnable()
     {
@@ -29,50 +28,37 @@ public class PlayerPlacer : MonoBehaviour
     // Called when a new scene is loaded
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (!hasPlacedPlayer)
-        {
-            switch (scene.buildIndex)
-            {
-                case 0: // First scene
-                    startPos = new Vector3(131.27f, 53.28f, 138.41f); // Example position
-                    break;
-                case 1: // Second scene
-                    startPos = new Vector3(121.48f, 66.67f, 127.38f); // Example position
-                    break;
-                default:
-                    Debug.Log("Default position applied.");
-                    startPos = defaultStartPos; // Default start position if not specified
-                    break;
-            }
 
-            Debug.Log("Scene loaded, starting player placement...");
-            StartCoroutine(PlacePlayerAfterDelay());
-        }
+        Debug.Log("on Scene");
+
+        startPos = transform.position;
+
+        Debug.Log("StartPos from attached object: " + startPos);
+       
+        StartCoroutine(PlacePlayerAfterDelay());
+        
     }
 
     private IEnumerator PlacePlayerAfterDelay()
     {
-        GameObject player = null;
+        yield return null;
 
-        // Loop to wait until the player is found
-        while (player == null)
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
         {
-            player = GameObject.FindWithTag("Player");
-            if (player != null)
-            {
-                Debug.Log("Original Player Position before placement: " + player.transform.position);
-                player.transform.position = startPos; // Set player position
-                Debug.Log("Player Placed at: " + startPos);
-                hasPlacedPlayer = true; // Set the flag so the placement only happens once
+            // Log the player's original position
+            Debug.Log("Original Player Position before placement: " + player.transform.position);
 
-                SceneManager.sceneLoaded -= OnSceneLoaded;
-            }
-            else
-            {
-                Debug.LogWarning("Player not found yet, retrying...");
-            }
+            // Set the player's position to the startPos (the position of the GameObject this script is attached to)
+            player.transform.position = startPos;
 
-            yield return new WaitForSeconds(0.1f); // Retry every 0.1 seconds
+            // Log the new player position
+            Debug.Log("Player Placed at: " + startPos);
+        }
+        else
+        {
+            Debug.LogError("Player not found in the scene.");
         }
     }
+
 }
