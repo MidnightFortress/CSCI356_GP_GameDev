@@ -5,8 +5,8 @@ using UnityEngine;
 public class DropBlock : MonoBehaviour
 {
     public GameObject dropBlock;    // store ref to block to drop
-    [SerializeField] AudioSource soundSource;
-    [SerializeField] AudioClip stoneSound;
+    [SerializeField] PlaySFX playSound;
+
     bool audioPlayed = false;
 
     private void OnTriggerEnter(Collider other)
@@ -17,11 +17,15 @@ public class DropBlock : MonoBehaviour
             // enable gravity on drop block
             dropBlock.GetComponent<Rigidbody>().useGravity = true;
 
-            if (!audioPlayed)   // play sfx once only
+            if (!audioPlayed && playSound != null)   // play sfx once only
             {
                 // play stone sfx
-                soundSource.PlayOneShot(stoneSound);
+                playSound.PlaySoundOnce();
                 audioPlayed = true;
+            }
+            else
+            {
+                Debug.Log("No audio component present!");
             }
         }
     }

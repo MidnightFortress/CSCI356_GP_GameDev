@@ -25,8 +25,5 @@ public class LoadNextScene : MonoBehaviour, Interactable
         {
             Debug.LogError("AsyncSceneLoader is not assigned!");
         }
-
-
-
     } 
 }
