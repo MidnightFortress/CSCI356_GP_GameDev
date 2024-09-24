@@ -6,13 +6,19 @@ public class PlaySFX : MonoBehaviour
 {
     [SerializeField] AudioSource soundSource;
     [SerializeField] AudioClip sound;
+    [SerializeField] AudioClip sound2;
 
+    public float sound2Delay = 0.5f;
 
     public void PlaySoundOnce()
     {
         if (soundSource != null && sound != null)
         {
             soundSource.PlayOneShot(sound);
+            if (sound2 != null)
+            {
+                Invoke(nameof(PlaySound2), sound2Delay);
+            }
         }
         else
         {
@@ -28,5 +34,10 @@ public class PlaySFX : MonoBehaviour
     public AudioClip GetAudioClip()
     {
         return sound;
+    }
+
+    void PlaySound2()
+    {
+        soundSource.PlayOneShot(sound2);
     }
 }
