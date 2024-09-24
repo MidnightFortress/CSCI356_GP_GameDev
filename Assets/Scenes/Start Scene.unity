@@ -4191,6 +4191,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1353366015704494959, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1450288823}
+    - targetCorrespondingSourceObject: {fileID: 1353366015704494959, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1450288826}
   m_SourcePrefab: {fileID: 100100000, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
 --- !u!1 &625632585
 GameObject:
@@ -4997,7 +5000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &725402452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5025,8 +5028,8 @@ MonoBehaviour:
   rotationA: 1
   senH: 10
   senV: 10
-  minV: -45
-  maxV: 45
+  minV: -60
+  maxV: 60
 --- !u!114 &725402454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8600,7 +8603,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.2
-  m_Pitch: 1.33
+  m_Pitch: 1.2
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -8705,7 +8708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1306351204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8845,8 +8848,8 @@ MonoBehaviour:
   rotationA: 1
   senH: 10
   senV: 10
-  minV: -45
-  maxV: 45
+  minV: -60
+  maxV: 60
 --- !u!114 &1306351216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9101,6 +9104,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1450288826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450288820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21189c56a662e49cd9fe8c8bbb4fe6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundSource: {fileID: 0}
+  ladderDropSound: {fileID: 0}
 --- !u!1 &1460998402
 GameObject:
   m_ObjectHideFlags: 0
@@ -10826,9 +10843,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696905530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a184dc37c1345269bd5ab0eeb8d273, type: 3}
+  m_Script: {fileID: 11500000, guid: 15f1fdab3da7b4cf1b6b4642d0deb5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropBlock: {fileID: 1577093348}
+  soundSource: {fileID: 1577093354}
+  stoneSound: {fileID: 8300000, guid: 3c3aaf285771b4edd90b1377301e1ee8, type: 3}
 --- !u!65 &1696905533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13397,7 +13417,7 @@ MonoBehaviour:
   activateObject: {fileID: 1450288820}
   objectCam: {fileID: 473775778}
   soundSource: {fileID: 1297447611}
-  ladderDropSound: {fileID: 8300000, guid: d42eecc6cd0394e4e928dd7d879c7303, type: 3}
+  ladderDropSound: {fileID: 8300000, guid: 4efe5d39f39bf4f68a1b605451059b1c, type: 3}
 --- !u!1 &2112403134
 GameObject:
   m_ObjectHideFlags: 0
