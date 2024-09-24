@@ -14,11 +14,9 @@ public class DoorTrigger : MonoBehaviour
            
                 target.SendMessage("Activate");
         }
-       
-      
+
         // a bool taken from keymanger to only open the door associated with the key held
 
-        Debug.Log("Triger");
     }
     void OnTriggerExit(Collider other)
     {
@@ -28,6 +26,7 @@ public class DoorTrigger : MonoBehaviour
         }
         Debug.Log("Closing");
     }
+
     // clossing the doors when leaving the trigger
 }
 

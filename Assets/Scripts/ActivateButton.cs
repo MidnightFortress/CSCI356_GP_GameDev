@@ -5,8 +5,12 @@ using UnityEngine;
 public class ActivateButton : MonoBehaviour
 {
     public GameObject player;
-    public GameObject ladder;
+    public GameObject activateObject;
+    public Camera objectCam;
     bool canPress = true;
+
+    [SerializeField] AudioSource soundSource;
+    [SerializeField] AudioClip ladderDropSound;
 
     // Start is called before the first frame update
     void Start()
@@ -16,18 +20,19 @@ public class ActivateButton : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Near Button!");
-        if (other.gameObject == player)
+        //  Debug.Log("Near Button!");
+
+        if (other.gameObject.CompareTag("Player"))
         {
             if (Input.GetKeyDown(KeyCode.E) && canPress)
             {
                 Debug.Log("button pressed");
                 StartCoroutine(activate());
             }
-            else if (Input.GetKeyDown(KeyCode.Q))
-            {
-                transform.gameObject.GetComponent<Renderer>().material.color = Color.blue;
-            }
+            //else if (Input.GetKeyDown(KeyCode.Q))
+            //{
+            //    transform.gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            //}
         }
     }
 
@@ -41,24 +46,38 @@ public class ActivateButton : MonoBehaviour
     {
         // change button to green color to represent activation
         transform.gameObject.GetComponent<Renderer>().material.color = Color.green;
+        canPress = false;   // can not press button while button activated
     }
 
     IEnumerator activate()
     {
         activateButton();
-        transform.position = transform.position + new Vector3(0,0,0.03f);
-        canPress = false;
+        //transform.position = transform.position + new Vector3(0,0,0.03f);
 
-        ladder.GetComponent<BoxCollider>().enabled = true;      // enable box collider
-        ladder.GetComponent<Rigidbody>().useGravity = true;     // set ladder to use gravity
+        if (objectCam != null)
+        {
+            objectCam.GetComponent<Camera>().enabled = true;    // enable ladder cam
+        }
+        
+        activateObject.GetComponent<Rigidbody>().useGravity = true;     // set ladder to use gravity
+        activateObject.GetComponent<BoxCollider>().enabled = true;      // enable box collider
 
-        yield return new WaitForSeconds(2);
+        Invoke("PlaySound", 0.8f);     // play drop ladder sfx after 2 sec delay
+        
+        yield return new WaitForSeconds(3);
 
-        transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
-        transform.position = transform.position - new Vector3(0, 0, 0.03f);
-        ladder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;      // enable box collider
-        ladder.GetComponent<Rigidbody>().isKinematic = true;    // ladder not affected by forces
+        //transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        //transform.position = transform.position - new Vector3(0, 0, 0.03f);
+        //ladder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;      // enable box collider
+        activateObject.GetComponent<Rigidbody>().isKinematic = true;    // ladder not affected by forces
         canPress = true;
+
+        objectCam.GetComponent<Camera>().enabled = false;    // disable ladder cam -> return to player
+    }
+
+    void PlaySound()
+    {
+        soundSource.PlayOneShot(ladderDropSound);   // play ladder drop sound
     }
 
 }
