@@ -10246,7 +10246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1617955480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573fd4d3aca344bba9c94726b8c6678a, type: 3}
+  m_Script: {fileID: 11500000, guid: b94e3327d21c9461ebc74499a5ad1d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openRotAngle: {x: 0, y: -90, z: 0}
@@ -12557,7 +12557,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2040007644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 411b285b9b66b424ea81f9544d9c674f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dc9067a474ae45b68879450104ff4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targets:

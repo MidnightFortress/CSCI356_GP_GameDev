@@ -4,80 +4,46 @@ using UnityEngine;
 
 public class ActivateButton : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject activateObject;
-    public Camera objectCam;
+    public GameObject player;           // ref to player
+    public GameObject activateObject;   // store ref of object to activate
+    public Camera objectCam;            // store ref to object camera view (if any)
     bool canPress = true;
-
-    [SerializeField] AudioSource soundSource;
-    [SerializeField] AudioClip ladderDropSound;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider other)
     {
-        //  Debug.Log("Near Button!");
-
         if (other.gameObject.CompareTag("Player"))
         {
             if (Input.GetKeyDown(KeyCode.E) && canPress)
             {
-                Debug.Log("button pressed");
-                StartCoroutine(activate());
+                StartCoroutine(Activate());
             }
-            //else if (Input.GetKeyDown(KeyCode.Q))
-            //{
-            //    transform.gameObject.GetComponent<Renderer>().material.color = Color.blue;
-            //}
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void activateButton()
+    void PressButton()
     {
         // change button to green color to represent activation
         transform.gameObject.GetComponent<Renderer>().material.color = Color.green;
+
         canPress = false;   // can not press button while button activated
     }
 
-    IEnumerator activate()
+    IEnumerator Activate()
     {
-        activateButton();
-        //transform.position = transform.position + new Vector3(0,0,0.03f);
+        PressButton();
 
-        if (objectCam != null)
+        if (objectCam != null) // check if cam angle
         {
-            objectCam.GetComponent<Camera>().enabled = true;    // enable ladder cam
+            objectCam.GetComponent<Camera>().enabled = true;    // enable cam view angle
         }
-        
-        activateObject.GetComponent<Rigidbody>().useGravity = true;     // set ladder to use gravity
-        activateObject.GetComponent<BoxCollider>().enabled = true;      // enable box collider
 
-        Invoke("PlaySound", 0.8f);     // play drop ladder sfx after 2 sec delay
-        
-        yield return new WaitForSeconds(3);
+        // call object function to activate object behaviour
+        activateObject.SendMessage("Activate");
 
-        //transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
-        //transform.position = transform.position - new Vector3(0, 0, 0.03f);
-        //ladder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;      // enable box collider
-        activateObject.GetComponent<Rigidbody>().isKinematic = true;    // ladder not affected by forces
+        yield return new WaitForSeconds(3.5f);
+
+        objectCam.GetComponent<Camera>().enabled = false;    // disable object cam -> return to player cam
+
         canPress = true;
-
-        objectCam.GetComponent<Camera>().enabled = false;    // disable ladder cam -> return to player
     }
-
-    void PlaySound()
-    {
-        soundSource.PlayOneShot(ladderDropSound);   // play ladder drop sound
-    }
-
 }
