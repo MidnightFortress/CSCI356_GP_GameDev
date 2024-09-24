@@ -6001,7 +6001,7 @@ GameObject:
   - component: {fileID: 812370937}
   - component: {fileID: 812370936}
   m_Layer: 0
-  m_Name: ButtonNext
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6634,7 +6634,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933943121}
   m_LocalRotation: {x: 0, y: 0, z: 0.7091217, w: 0.7050861}
-  m_LocalPosition: {x: 0.19, y: 0.02, z: 2.57}
+  m_LocalPosition: {x: 0.19, y: 0.02, z: 2.47}
   m_LocalScale: {x: 7.1131883, y: 1, z: 3.6675196}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7209,9 +7209,9 @@ Transform:
   - {fileID: 951764576}
   - {fileID: 817785700}
   - {fileID: 1050186162}
-  - {fileID: 1617955481}
   - {fileID: 238077837}
   - {fileID: 1690476239}
+  - {fileID: 1617955481}
   - {fileID: 2040007645}
   - {fileID: 1485007134}
   m_Father: {fileID: 1135212555}
@@ -10215,7 +10215,7 @@ GameObject:
   - component: {fileID: 1617955481}
   - component: {fileID: 1617955482}
   m_Layer: 0
-  m_Name: LoadDoor
+  m_Name: LoadDoorHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10229,8 +10229,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617955480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.39, y: -4.651, z: 4.32}
-  m_LocalScale: {x: 1, y: 0.90142, z: 0.9060067}
+  m_LocalPosition: {x: 6.54, y: -4.651001, z: 4.41}
+  m_LocalScale: {x: 1, y: 0.90142, z: 0.90600675}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 933943122}
@@ -10246,7 +10246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1617955480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b534c6044f5ee4f8392e4c2230ac3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 573fd4d3aca344bba9c94726b8c6678a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openRotAngle: {x: 0, y: -90, z: 0}
@@ -10522,14 +10522,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690476238}
-  m_LocalRotation: {x: -0.5115376, y: 0.51496685, z: -0.48800614, w: 0.48475614}
-  m_LocalPosition: {x: 19.97, y: -5.31, z: 1.9}
+  m_LocalRotation: {x: -0.49560547, y: 0.4991388, z: -0.5041745, w: 0.5010427}
+  m_LocalPosition: {x: 19.982635, y: -5.017184, z: 2.13201}
   m_LocalScale: {x: 6.8394227, y: 1, z: 6.393352}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1032222165}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0.382, y: 93.08, z: -89.979}
+  m_LocalEulerAnglesHint: {x: 0.382, y: 89.4, z: -89.979}
 --- !u!65 &1690476240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12527,7 +12527,7 @@ GameObject:
   - component: {fileID: 2040007647}
   - component: {fileID: 2040007646}
   m_Layer: 0
-  m_Name: doorTrigger
+  m_Name: LoadDoorTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12557,7 +12557,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2040007644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fdd4121413295479464d106f2ce7b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 411b285b9b66b424ea81f9544d9c674f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
@@ -12581,8 +12581,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.35768154, y: 6.429138, z: 0.42080313}
+  m_Center: {x: -0.14946812, y: 2.68, z: 0.046903033}
 --- !u!23 &2040007648
 MeshRenderer:
   m_ObjectHideFlags: 0

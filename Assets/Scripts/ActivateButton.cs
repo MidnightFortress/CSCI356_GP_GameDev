@@ -5,8 +5,8 @@ using UnityEngine;
 public class ActivateButton : MonoBehaviour
 {
     public GameObject player;
-    public GameObject ladder;
-    public Camera ladderCam;
+    public GameObject activateObject;
+    public Camera objectCam;
     bool canPress = true;
 
     [SerializeField] AudioSource soundSource;
@@ -54,9 +54,13 @@ public class ActivateButton : MonoBehaviour
         activateButton();
         //transform.position = transform.position + new Vector3(0,0,0.03f);
 
-        ladderCam.GetComponent<Camera>().enabled = true;    // enable ladder cam
-        ladder.GetComponent<Rigidbody>().useGravity = true;     // set ladder to use gravity
-        ladder.GetComponent<BoxCollider>().enabled = true;      // enable box collider
+        if (objectCam != null)
+        {
+            objectCam.GetComponent<Camera>().enabled = true;    // enable ladder cam
+        }
+        
+        activateObject.GetComponent<Rigidbody>().useGravity = true;     // set ladder to use gravity
+        activateObject.GetComponent<BoxCollider>().enabled = true;      // enable box collider
 
         Invoke("PlaySound", 0.8f);     // play drop ladder sfx after 2 sec delay
         
@@ -65,10 +69,10 @@ public class ActivateButton : MonoBehaviour
         //transform.gameObject.GetComponent<Renderer>().material.color = Color.red;
         //transform.position = transform.position - new Vector3(0, 0, 0.03f);
         //ladder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;      // enable box collider
-        ladder.GetComponent<Rigidbody>().isKinematic = true;    // ladder not affected by forces
+        activateObject.GetComponent<Rigidbody>().isKinematic = true;    // ladder not affected by forces
         canPress = true;
 
-        ladderCam.GetComponent<Camera>().enabled = false;    // disable ladder cam -> return to player
+        objectCam.GetComponent<Camera>().enabled = false;    // disable ladder cam -> return to player
     }
 
     void PlaySound()
