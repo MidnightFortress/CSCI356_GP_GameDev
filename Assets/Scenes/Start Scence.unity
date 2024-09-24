@@ -4997,7 +4997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &725402452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8705,7 +8705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1306351204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10829,9 +10829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a184dc37c1345269bd5ab0eeb8d273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropBlock: {fileID: 1577093348}
-  soundSource: {fileID: 1577093354}
-  stoneSound: {fileID: 8300000, guid: 6b255e7dfc42045049143b4d71a9a99a, type: 3}
 --- !u!65 &1696905533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13397,10 +13394,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1306351203}
-  activateObject: {fileID: 0}
-  objectCam: {fileID: 0}
+  activateObject: {fileID: 1450288820}
+  objectCam: {fileID: 473775778}
   soundSource: {fileID: 1297447611}
-  ladderDropSound: {fileID: 8300000, guid: f31683a7897db4537837de2b4bfa4bb7, type: 3}
+  ladderDropSound: {fileID: 8300000, guid: d42eecc6cd0394e4e928dd7d879c7303, type: 3}
 --- !u!1 &2112403134
 GameObject:
   m_ObjectHideFlags: 0
