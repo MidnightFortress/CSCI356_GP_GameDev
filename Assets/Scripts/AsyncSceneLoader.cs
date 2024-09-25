@@ -26,16 +26,10 @@ public class AsyncSceneLoader : MonoBehaviour
 
             if (!alreadyLoaded)
             {
- alreadyLoaded = true;  
+            alreadyLoaded = true;  
             StartCoroutine(LoadSceneAsyncCor());
             }
-
-           
-
-            
         }
-        
-
     }
 
     private IEnumerator LoadSceneAsyncCor()
