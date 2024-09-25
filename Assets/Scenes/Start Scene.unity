@@ -4028,7 +4028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &725402452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5059,8 +5059,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc50dd87d785744cdbbeee58afa7147f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 2112403135}
-  pointB: {fileID: 1637198490}
+  wayPoints:
+  - {fileID: 2112403135}
+  - {fileID: 1637198490}
   platformSpeed: 1
 --- !u!65 &788070773
 BoxCollider:
@@ -7047,7 +7048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1306351204
 MonoBehaviour:
   m_ObjectHideFlags: 0
