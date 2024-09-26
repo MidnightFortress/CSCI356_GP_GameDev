@@ -5,11 +5,11 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] GameObject[] targets;
- 
+     
     void OnTriggerEnter(Collider other)
     {
         
-  foreach (GameObject target in targets)
+    foreach (GameObject target in targets)
         {
            
                 target.SendMessage("Activate");

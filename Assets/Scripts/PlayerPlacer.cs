@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerPlacer : MonoBehaviour
 {
     private Vector3 startPos;
-    //private bool hasPlacedPlayer = false; this is never actually used in a check, so I commented it out..
+    private bool hasPlacedPlayer = false;
     private Quaternion startRot;
 
     private void OnEnable()
@@ -20,7 +20,7 @@ public class PlayerPlacer : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // hasPlacedPlayer = false;
+        hasPlacedPlayer = false;
         // placed a bool because it was sometimes placing teh player twice
 
         GameObject respawnObject = GameObject.FindGameObjectWithTag("Respawn");
@@ -46,7 +46,7 @@ public class PlayerPlacer : MonoBehaviour
 
                     Debug.Log("Actual Player Position after placement: " + player.transform.position);
 
-                    // hasPlacedPlayer = true;
+                    hasPlacedPlayer = true;
 
                     // this if gets the player and places them in the spawn point. tyhere is a bit of debugging as well, to make sure it is working
                     // had a bit of a problem with this as sometimes it works sometimes it doesnt. If it doesnt work it just leaves the player in the same position as scene 1
