@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 7965060738137444743}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -68.2, z: 0}
 --- !u!65 &6061818061764211885
 BoxCollider:
@@ -64,12 +64,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3916849896007678157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e1f060a4a23471d80b4bb474419198, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b1d8ac30dd8f438da8c0dd160d290fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 2
-  respawnTime: 6
-  Player: {fileID: 3916849896007678157}
+  respawnTime: 5
+  Player: {fileID: 0}
 --- !u!1 &6354892929349333836
 GameObject:
   m_ObjectHideFlags: 0

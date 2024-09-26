@@ -304,13 +304,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7999244044521672495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea0bb41f9289c4b73895ba0131aab359, type: 3}
+  m_Script: {fileID: 11500000, guid: f348072d1e42945dcabe404bb1ccaece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetZip: {fileID: 0}
-  zipSpeed: 700
+  zipSpeed: 400
   zipScale: 0.2
-  arrivalThreshold: 0.4
+  arrivalThreshold: 0.5
   zipCable: {fileID: 0}
   zipTransform: {fileID: 7188060446353898749}
 --- !u!1 &8876911016577390328
