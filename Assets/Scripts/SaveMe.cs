@@ -11,5 +11,7 @@ public class SaveMe : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         Debug.Log(gameObject.scene.name);
+
+      
     }
 }
