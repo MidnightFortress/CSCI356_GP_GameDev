@@ -10,7 +10,6 @@ public class FallingPlatform : MonoBehaviour
     private Vector3 startPostion;
     private Quaternion startRotation;
 
-    public GameObject Player;
     private GameObject Platform;
 
     // Start is called before the first frame update

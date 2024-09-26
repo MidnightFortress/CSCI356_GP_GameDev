@@ -7453,13 +7453,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450288820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21189c56a662e49cd9fe8c8bbb4fe6bd, type: 3}
+  m_Script: {fileID: 11500000, guid: cdc9a3adb709f41dd9f230e65fa61991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSource: {fileID: 1297447611}
-  sound: {fileID: 8300000, guid: 4efe5d39f39bf4f68a1b605451059b1c, type: 3}
-  sound2: {fileID: 0}
-  sound2Delay: 0.5
+  playSound: {fileID: 1450288830}
 --- !u!114 &1450288830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7469,10 +7466,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450288820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2905b0021bb84df080fd9f805c996ae, type: 3}
+  m_Script: {fileID: 11500000, guid: d0c192f2860b84ff788089c2c7aede78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSound: {fileID: 1450288829}
+  soundSource: {fileID: 1297447611}
+  sound: {fileID: 8300000, guid: 4efe5d39f39bf4f68a1b605451059b1c, type: 3}
+  sound2: {fileID: 0}
+  sound2Delay: 0.5
 --- !u!1 &1460998402
 GameObject:
   m_ObjectHideFlags: 0
@@ -8833,7 +8833,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696905530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f1fdab3da7b4cf1b6b4642d0deb5b9, type: 3}
+  m_Script: {fileID: 11500000, guid: df84e93c29a8745eb85d6be82bef1f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dropBlock: {fileID: 1577093348}
@@ -8889,13 +8889,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696905530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21189c56a662e49cd9fe8c8bbb4fe6bd, type: 3}
+  m_Script: {fileID: 11500000, guid: d0c192f2860b84ff788089c2c7aede78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 1577093354}
   sound: {fileID: 8300000, guid: 3c3aaf285771b4edd90b1377301e1ee8, type: 3}
   sound2: {fileID: 8300000, guid: 1503ac4bb05904e0592f45d3b7433868, type: 3}
-  sound2Delay: 0.2
+  sound2Delay: 0.5
 --- !u!1 &1697866940
 GameObject:
   m_ObjectHideFlags: 0
