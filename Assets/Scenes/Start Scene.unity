@@ -6135,9 +6135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc50dd87d785744cdbbeee58afa7147f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wayPoints:
-  - {fileID: 2112403135}
-  - {fileID: 1637198490}
+  pointA: {fileID: 2112403135}
+  pointB: {fileID: 1637198490}
   platformSpeed: 1
 --- !u!65 &788070773
 BoxCollider:
