@@ -37,34 +37,33 @@ public class FPSInput : MonoBehaviour
         // Resetting values when touching the ground
         grounded = charControl.isGrounded;
 	
-	// Determining if the character is falling or walking down a incline
-	if(!grounded)
-	{
-	    fallTimer += Time.deltaTime;
-	}
-	else
-	{
-	   fallTimer = 0.0f;
-	}
+	    // Determining if the character is falling or walking down a incline
+	    if(!grounded)
+	    {
+	        fallTimer += Time.deltaTime;
+	    }
+	    else
+	    {
+	        fallTimer = 0.0f;
+	    }
 
-	
-	if(fallTimer < fallDisable)
-	{
+	    if(fallTimer < fallDisable)
+	    {
        	    if(playerVelocity.y < 0)
             {
-		airJump = 0;
-		playerVelocity = Vector3.zero;
+		        airJump = 0;
+		        playerVelocity = Vector3.up * gravity; // gravity to stop jittery downhill movement
             }
             // move when on the ground
             charControl.Move(move * Time.deltaTime * playerSpeed);
-	}
+	    }
 
         // UpDown Movement of player
         if (Input.GetButtonDown("Jump") && airJump < jumpMax)
         {
             airJump++; // counting jumps
             playerVelocity = move; // direction the player is moving in the
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity); // attempting to make an arc in movement
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.14f * gravity); // attempting to make an arc in movement
         }
 
         playerVelocity.y += gravity * Time.deltaTime; // accellerating the player down

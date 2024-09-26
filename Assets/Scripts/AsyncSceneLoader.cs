@@ -22,8 +22,6 @@ public class AsyncSceneLoader : MonoBehaviour
 
         if (other.CompareTag("Player")) 
         {
-           
-
             if (!alreadyLoaded)
             {
             alreadyLoaded = true;  
@@ -34,24 +32,22 @@ public class AsyncSceneLoader : MonoBehaviour
 
     private IEnumerator LoadSceneAsyncCor()
     {
-      
-        asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
-           asyncOperation.allowSceneActivation = false;
 
-            Debug.Log(asyncOperation.progress);
+        asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+
+        asyncOperation.allowSceneActivation = false;
+
+        Debug.Log(asyncOperation.progress);
 
         while (asyncOperation.progress < 0.9f)
             yield return null;
        
         Debug.Log("Scene is ready. Press the button to load it.");
 
-
     }
-
 
     public void ActivateScene()
     {
-
         asyncOperation.allowSceneActivation = true;
     }
       
