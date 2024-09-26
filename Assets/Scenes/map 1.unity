@@ -6823,6 +6823,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7951251749818171183, guid: 2948ee29b883b4550a50b0918f79ccb2, type: 3}
+      propertyPath: targetZip
+      value: 
+      objectReference: {fileID: 2145387285}
     - target: {fileID: 5499062118179503733, guid: 2948ee29b883b4550a50b0918f79ccb2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -14493,6 +14497,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144571455}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2145387285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7951251749818171183, guid: 2948ee29b883b4550a50b0918f79ccb2, type: 3}
+  m_PrefabInstance: {fileID: 831966978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959820aa3e6fb4c818331bb75b45dc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6482422625627230140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14501,6 +14516,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7951251749818171183, guid: 2948ee29b883b4550a50b0918f79ccb2, type: 3}
+      propertyPath: targetZip
+      value: 
+      objectReference: {fileID: 2145387285}
     - target: {fileID: 5499062118179503733, guid: 2948ee29b883b4550a50b0918f79ccb2, type: 3}
       propertyPath: m_RootOrder
       value: 6
