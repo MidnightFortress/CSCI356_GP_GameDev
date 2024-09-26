@@ -24,8 +24,8 @@ public class AsyncSceneLoader : MonoBehaviour
         {
             if (!alreadyLoaded)
             {
-                alreadyLoaded = true;  
-                StartCoroutine(LoadSceneAsyncCor());
+            alreadyLoaded = true;  
+            StartCoroutine(LoadSceneAsyncCor());
             }
         }
     }
