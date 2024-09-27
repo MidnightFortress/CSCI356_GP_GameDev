@@ -5,16 +5,8 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     // platform path start and end points
-    public List<Transform> wayPoints;
-
-    //public Transform pointA;
-    //public Transform pointB;
-    //public Transform pointC;
-
-    Transform currentPoint;
-    Transform nextPoint;
-    bool movingForward = true;
-    int currentPointIndex = 0;
+    public Transform pointA;
+    public Transform pointB;
 
     // movement start time
     private float startTime;
@@ -30,15 +22,13 @@ public class MovingPlatform : MonoBehaviour
     {
         // get start time
         startTime = Time.time;
-        currentPoint = wayPoints[0];
-        nextPoint = wayPoints[1];
 
         // calculate distance to next point
-        totalDistance = Vector3.Distance(currentPoint.position, nextPoint.position);
+        totalDistance = Vector3.Distance(pointA.position, pointB.position);
     }
 
     // Update is called once per frame
-    void FixedUpdate() // using fixed update gives smooth motion independent of frame rate
+    void FixedUpdate() // using fixed update gives smooth motion not dependent on frame rate
     {
         // distance = speed * time
         float currDistance = platformSpeed * (Time.time - startTime);
@@ -50,69 +40,22 @@ public class MovingPlatform : MonoBehaviour
         percentTravelled = Mathf.SmoothStep(0, 1, percentTravelled);
 
         // use the above to interpolate between points
-        transform.position = Vector3.Lerp(currentPoint.position, nextPoint.position, percentTravelled);
+        transform.position = Vector3.Lerp(pointA.position, pointB.position, percentTravelled);
 
         // include platform rotation based on point transform rotation
-        transform.rotation = Quaternion.Lerp(currentPoint.rotation, nextPoint.rotation, percentTravelled);
-
-        if (movingForward && percentTravelled >= 1) // have reached the next point (get next way point if any)
-        {
-            currentPointIndex++;    // make next way point current
-
-            if (currentPointIndex == wayPoints.Count - 1) // check if there is a next waypoint
-            {
-                movingForward = false;      // head in opposite direction
-
-                currentPoint = wayPoints[currentPointIndex];
-                nextPoint = wayPoints[currentPointIndex - 1];
-
-                totalDistance = Vector3.Distance(currentPoint.position, nextPoint.position);
-                startTime = Time.time;
-            }
-            else
-            {
-                currentPoint = wayPoints[currentPointIndex];
-                nextPoint = wayPoints[currentPointIndex + 1];
-
-                totalDistance = Vector3.Distance(currentPoint.position, nextPoint.position);
-                startTime = Time.time;
-            }
-        }
-        else if (!movingForward && percentTravelled >= 1) // have reached the next point (get next way point if any)
-        {
-            currentPointIndex--;    // make next way point current
-
-            if (currentPointIndex == 0) // check if there is a next waypoint
-            {
-                movingForward = true;      // head in opposite direction
-
-                currentPoint = wayPoints[currentPointIndex];
-                nextPoint = wayPoints[currentPointIndex + 1];
-
-                totalDistance = Vector3.Distance(currentPoint.position, nextPoint.position);
-                startTime = Time.time;
-            }
-            else
-            {
-                currentPoint = wayPoints[currentPointIndex];
-                nextPoint = wayPoints[currentPointIndex - 1];
-
-                totalDistance = Vector3.Distance(currentPoint.position, nextPoint.position);
-                startTime = Time.time;
-            }
-        }
+        transform.rotation = Quaternion.Lerp(pointA.rotation, pointB.rotation, percentTravelled);
 
         // if next point reached alternate the platorm direction
-        //if (percentTravelled >= 1)
-        //{
-        //    // swap transforms
-        //    Transform temp = pointB;
-        //    pointB = pointA;
-        //    pointA = temp;
+        if (percentTravelled >= 1)
+        {
+            // swap transforms
+            Transform temp = pointB;
+            pointB = pointA;
+            pointA = temp;
 
-        //    // reset start time to current time
-        //    startTime = Time.time;
-        //}
+            // reset start time to current time
+            startTime = Time.time;
+        }
     }
 
     // parent player to platform while in contact
