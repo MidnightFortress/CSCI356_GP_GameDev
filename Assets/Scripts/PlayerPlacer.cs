@@ -22,7 +22,6 @@ public class PlayerPlacer : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
         hasPlacedPlayer = false;
         // placed a bool because it was sometimes placing teh player twice
 
@@ -48,7 +47,6 @@ public class PlayerPlacer : MonoBehaviour
                     Debug.Log("Player Placed at: " + startPos);
 
                     Debug.Log("Actual Player Position after placement: " + player.transform.position);
-
 
                     hasPlacedPlayer = true;
 
