@@ -7,9 +7,6 @@ public class PlayerPlacer : MonoBehaviour
 
     private bool hasPlacedPlayer = false;
 
-
-    private bool hasPlacedPlayer = false;
-
     private Quaternion startRot;
 
     private void OnEnable()
