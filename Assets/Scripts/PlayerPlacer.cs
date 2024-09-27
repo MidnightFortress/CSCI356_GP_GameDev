@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class PlayerPlacer : MonoBehaviour
 {
     private Vector3 startPos;
+
     private bool hasPlacedPlayer = false;
+
     private Quaternion startRot;
 
     private void OnEnable()
