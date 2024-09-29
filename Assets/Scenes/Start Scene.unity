@@ -4192,7 +4192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 725402451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0997f0f38022f4119ad770ba0071914e, type: 3}
+  m_Script: {fileID: 11500000, guid: b11b48a969e594cd3b3b0507c0502725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castOffset: 1
@@ -7227,7 +7227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1306351203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0997f0f38022f4119ad770ba0071914e, type: 3}
+  m_Script: {fileID: 11500000, guid: b11b48a969e594cd3b3b0507c0502725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castOffset: 1
@@ -7483,7 +7483,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450288820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72893d711bff4333843774fd65ffeaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fcd3c1b6e1dd454b9709c1b20cd3cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playSound: {fileID: 1450288830}
@@ -7496,11 +7496,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450288820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653780cda78ef4f84934f8b037e233ff, type: 3}
+  m_Script: {fileID: 11500000, guid: af23a56b8a2cd4e109654d88ad167ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 1297447611}
-  sound: {fileID: 8300000, guid: 7953b04d4a15d4be0b62d0ba1dddd1cc, type: 3}
+  sound: {fileID: 8300000, guid: ecbbe8fd57bd149978d99e96a4ea5d66, type: 3}
   sound2: {fileID: 0}
   sound2Delay: 0.5
 --- !u!1 &1460998402
@@ -8244,7 +8244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.624
   m_Pitch: 0.87
   Loop: 0
   Mute: 0
@@ -8288,7 +8288,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8337,12 +8337,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1577093348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 653780cda78ef4f84934f8b037e233ff, type: 3}
+  m_Script: {fileID: 11500000, guid: af23a56b8a2cd4e109654d88ad167ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 1577093354}
-  sound: {fileID: 8300000, guid: a92140bf2de244f9b85584e9e6b497f2, type: 3}
-  sound2: {fileID: 8300000, guid: 90482a9c148a14a0598aca1b08e725bd, type: 3}
+  sound: {fileID: 8300000, guid: b21d769a9018d4240bb091db0a01c9e1, type: 3}
+  sound2: {fileID: 8300000, guid: 2368abed8a53e430e8e72907d6b3bfb2, type: 3}
   sound2Delay: 0.16
 --- !u!1 &1627715733
 GameObject:
@@ -8879,7 +8879,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696905530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9e4c3dc06364ae29d0560458353b35, type: 3}
+  m_Script: {fileID: 11500000, guid: 691920e1f1db74c96bfe6892e323ef22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dropBlock: {fileID: 1577093348}
