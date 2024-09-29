@@ -6156,9 +6156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc50dd87d785744cdbbeee58afa7147f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 2112403135}
-  pointB: {fileID: 1637198490}
-  platformSpeed: 1
+  wayPoints:
+  - {fileID: 2112403135}
+  - {fileID: 1637198490}
+  platformSpeed: 3
 --- !u!65 &788070773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13478,8 +13479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1306351203}
-  activateObject: {fileID: 0}
-  objectCam: {fileID: 0}
+  activateObject: {fileID: 1450288820}
+  objectCam: {fileID: 473775778}
 --- !u!1 &2112403134
 GameObject:
   m_ObjectHideFlags: 0
