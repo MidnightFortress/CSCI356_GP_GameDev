@@ -4191,6 +4191,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1353366015704494959, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1450288823}
+    - targetCorrespondingSourceObject: {fileID: 1353366015704494959, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1450288829}
+    - targetCorrespondingSourceObject: {fileID: 1353366015704494959, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1450288830}
   m_SourcePrefab: {fileID: 100100000, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
 --- !u!1 &625632585
 GameObject:
@@ -4991,6 +4997,7 @@ GameObject:
   - component: {fileID: 725402454}
   - component: {fileID: 725402453}
   - component: {fileID: 725402452}
+  - component: {fileID: 725402460}
   m_Layer: 0
   m_Name: TestPlayer (Start Area)
   m_TagString: Player
@@ -5151,6 +5158,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 323.3, z: 0}
+--- !u!114 &725402460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725402451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11b48a969e594cd3b3b0507c0502725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castOffset: 1
+  castRadius: 2
 --- !u!1 &743751401
 GameObject:
   m_ObjectHideFlags: 0
@@ -8699,6 +8720,7 @@ GameObject:
   - component: {fileID: 1306351212}
   - component: {fileID: 1306351215}
   - component: {fileID: 1306351216}
+  - component: {fileID: 1306351217}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -8859,6 +8881,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e428bfa60fdd1b7458ff2202598381cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1306351217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306351203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11b48a969e594cd3b3b0507c0502725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castOffset: 1
+  castRadius: 2
 --- !u!1 &1406063882
 GameObject:
   m_ObjectHideFlags: 0
@@ -9101,6 +9137,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &1450288829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450288820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96df1244d2c434dd4b8724237fd3fd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 1450288830}
+--- !u!114 &1450288830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450288820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af23a56b8a2cd4e109654d88ad167ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundSource: {fileID: 1297447611}
+  sound: {fileID: 8300000, guid: ecbbe8fd57bd149978d99e96a4ea5d66, type: 3}
+  sound2: {fileID: 0}
+  sound2Delay: 0.5
 --- !u!1 &1460998402
 GameObject:
   m_ObjectHideFlags: 0
@@ -10030,6 +10095,7 @@ GameObject:
   - component: {fileID: 1577093350}
   - component: {fileID: 1577093353}
   - component: {fileID: 1577093354}
+  - component: {fileID: 1577093355}
   m_Layer: 0
   m_Name: dropDownBlock
   m_TagString: Untagged
@@ -10162,7 +10228,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.624
   m_Pitch: 0.87
   Loop: 0
   Mute: 0
@@ -10206,7 +10272,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10246,6 +10312,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1577093355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577093348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af23a56b8a2cd4e109654d88ad167ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundSource: {fileID: 1577093354}
+  sound: {fileID: 8300000, guid: b21d769a9018d4240bb091db0a01c9e1, type: 3}
+  sound2: {fileID: 8300000, guid: 2368abed8a53e430e8e72907d6b3bfb2, type: 3}
+  sound2Delay: 0.16
 --- !u!1 &1627715733
 GameObject:
   m_ObjectHideFlags: 0
@@ -10826,12 +10908,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1696905530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a184dc37c1345269bd5ab0eeb8d273, type: 3}
+  m_Script: {fileID: 11500000, guid: 691920e1f1db74c96bfe6892e323ef22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dropBlock: {fileID: 1577093348}
-  soundSource: {fileID: 1577093354}
-  stoneSound: {fileID: 8300000, guid: 6b255e7dfc42045049143b4d71a9a99a, type: 3}
+  playSound: {fileID: 1577093355}
 --- !u!65 &1696905533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13399,8 +13480,6 @@ MonoBehaviour:
   player: {fileID: 1306351203}
   activateObject: {fileID: 0}
   objectCam: {fileID: 0}
-  soundSource: {fileID: 1297447611}
-  ladderDropSound: {fileID: 8300000, guid: f31683a7897db4537837de2b4bfa4bb7, type: 3}
 --- !u!1 &2112403134
 GameObject:
   m_ObjectHideFlags: 0

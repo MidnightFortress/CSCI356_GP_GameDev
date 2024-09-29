@@ -264,7 +264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dfcd55b5c33f29146aca7113f3f758e4, type: 2}
+  - {fileID: 2100000, guid: ffad073e6df894dafba4dab5a2932361, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 9139871496069374668}
   m_Layer: 0
   m_Name: Torch 1
-  m_TagString: Untagged
+  m_TagString: Zipline
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,5 +340,5 @@ Transform:
   - {fileID: 542813827480861335}
   - {fileID: 8689631651555514757}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
