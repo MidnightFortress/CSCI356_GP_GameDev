@@ -1505,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &165941139
 Transform:
   m_ObjectHideFlags: 0
@@ -5143,7 +5143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &699369270
 Transform:
   m_ObjectHideFlags: 0
@@ -6003,7 +6003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &767805933
 Transform:
   m_ObjectHideFlags: 0
@@ -7166,6 +7166,67 @@ Transform:
   m_Father: {fileID: 1657449232}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &940062289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1615897027449153270, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_Name
+      value: ZiplineCable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 232.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 271.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8436489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.17581621
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.21290053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.46045485
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -5.773
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -31.587
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497076296017937079, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 58.885
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3166f7cb7800347b994913661bbce92f, type: 3}
 --- !u!1 &951764575
 GameObject:
   m_ObjectHideFlags: 0
@@ -7289,7 +7350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &962838304
 Transform:
   m_ObjectHideFlags: 0
@@ -10088,14 +10149,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4152483740674750429, guid: 583f1cd8d8e634447af92e6cad80a586, type: 3}
-      propertyPath: m_Range
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152483740674750429, guid: 583f1cd8d8e634447af92e6cad80a586, type: 3}
-      propertyPath: m_Intensity
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5957517677185534790, guid: 15cba5e1d9feb4d25ae025287196efce, type: 3}
       propertyPath: m_Name
       value: Torch 1 (1)
@@ -10143,6 +10196,14 @@ PrefabInstance:
     - target: {fileID: 9139871496069374668, guid: 15cba5e1d9feb4d25ae025287196efce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152483740674750429, guid: 583f1cd8d8e634447af92e6cad80a586, type: 3}
+      propertyPath: m_Range
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152483740674750429, guid: 583f1cd8d8e634447af92e6cad80a586, type: 3}
+      propertyPath: m_Intensity
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11230,7 +11291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1636046173
 Transform:
   m_ObjectHideFlags: 0
@@ -12174,7 +12235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1814829054
 Transform:
   m_ObjectHideFlags: 0
