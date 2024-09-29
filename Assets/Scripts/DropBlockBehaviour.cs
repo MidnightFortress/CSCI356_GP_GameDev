@@ -5,15 +5,9 @@ using UnityEngine;
 public class DropBlock : MonoBehaviour
 {
     public GameObject dropBlock;    // store ref to block to drop
-    private PlaySFX playSound;
+    [SerializeField] PlaySFX playSound;
 
     bool audioPlayed = false;
-
-    private void Awake()
-    {
-        // get ref to sfx script
-        playSound = dropBlock.GetComponent<PlaySFX>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {

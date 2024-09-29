@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorTrigger : MonoBehaviour
+public class DoorTrigger : MonoBehaviour, Interactable
 {
     [SerializeField] GameObject[] targets;
-     
+ 
     void OnTriggerEnter(Collider other)
     {
         
-    foreach (GameObject target in targets)
+  foreach (GameObject target in targets)
         {
            
                 target.SendMessage("Activate");
@@ -28,5 +28,14 @@ public class DoorTrigger : MonoBehaviour
     }
 
     // clossing the doors when leaving the trigger
-}
+
+    public void Interact()
+    {
+        foreach (GameObject target in targets)
+        {
+
+            target.SendMessage("Activate");
+        }
+    }
+    }
 
