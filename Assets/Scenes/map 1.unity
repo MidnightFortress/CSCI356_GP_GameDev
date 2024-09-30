@@ -671,9 +671,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 61532940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52085fde1b284c94ba03a108d3b85b10, type: 3}
+  m_Script: {fileID: 11500000, guid: 50ca36bb3dc744e92a0240c3c515e90a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: arena
 --- !u!1 &70924723
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +982,7 @@ GameObject:
   - component: {fileID: 80131518}
   - component: {fileID: 80131519}
   m_Layer: 0
-  m_Name: DoorLeft
+  m_Name: DoorLefthinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,9 +1013,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 80131517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b534c6044f5ee4f8392e4c2230ac3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1be02442c70014755a9cdbb87af0498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openRotAngle: {x: 0, y: 90, z: 0}
+  closeRotAngle: {x: 0, y: 0, z: 0}
+  speed: 1
 --- !u!1 &81078253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96409087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cc72e6fcadfc4ff9959cf07e1fa4430, type: 3}
   m_Name: 
@@ -1806,7 +1810,7 @@ GameObject:
   - component: {fileID: 173853372}
   - component: {fileID: 173853371}
   - component: {fileID: 173853370}
-  - component: {fileID: 173853373}
+  - component: {fileID: 173853374}
   m_Layer: 0
   m_Name: KeyHole
   m_TagString: Untagged
@@ -1900,7 +1904,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173853368}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &173853373
+--- !u!114 &173853374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1909,9 +1913,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 173853368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fdd4121413295479464d106f2ce7b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 293bd6f22226d4a538604f4e9b233fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 80131517}
+  - {fileID: 1761198536}
 --- !u!1 &202432915
 GameObject:
   m_ObjectHideFlags: 0
@@ -7047,7 +7054,7 @@ GameObject:
   - component: {fileID: 931416475}
   - component: {fileID: 931416474}
   - component: {fileID: 931416473}
-  - component: {fileID: 931416472}
+  - component: {fileID: 931416476}
   m_Layer: 0
   m_Name: TriggerClose
   m_TagString: Untagged
@@ -7063,25 +7070,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931416470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7, y: -10.3, z: -69.3}
-  m_LocalScale: {x: 15.812537, y: 23.575022, z: 1}
+  m_LocalPosition: {x: -1.06, y: 20.47, z: -36.96}
+  m_LocalScale: {x: 12, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2093186140}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &931416472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931416470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fdd4121413295479464d106f2ce7b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &931416473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7153,6 +7148,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931416470}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &931416476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931416470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293bd6f22226d4a538604f4e9b233fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 80131517}
+  - {fileID: 1761198536}
 --- !u!1 &933943121
 GameObject:
   m_ObjectHideFlags: 0
@@ -7832,7 +7842,7 @@ GameObject:
   - component: {fileID: 1058609423}
   - component: {fileID: 1058609422}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9055,7 +9065,7 @@ GameObject:
   - component: {fileID: 1270413013}
   - component: {fileID: 1270413012}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: leftSideMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9160,7 +9170,7 @@ GameObject:
   - component: {fileID: 1281469220}
   - component: {fileID: 1281469219}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: rightSideMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11828,7 +11838,7 @@ GameObject:
   - component: {fileID: 1761198537}
   - component: {fileID: 1761198538}
   m_Layer: 0
-  m_Name: DoorRight
+  m_Name: DoorRightHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11859,9 +11869,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1761198536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b534c6044f5ee4f8392e4c2230ac3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1be02442c70014755a9cdbb87af0498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openRotAngle: {x: 0, y: -90, z: 0}
+  closeRotAngle: {x: 0, y: 0, z: 0}
+  speed: 1
 --- !u!1 &1801401712
 GameObject:
   m_ObjectHideFlags: 0
@@ -12178,7 +12191,7 @@ GameObject:
   - component: {fileID: 1826968524}
   - component: {fileID: 1826968523}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13514,9 +13527,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1995512107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc27d5317b0c5c246820b454a368884b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9823a28140bff4486ac9dea11827fe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skyboxs:
+  - {fileID: 2100000, guid: eb8fd6bd252589744b602770b09ccbd7, type: 2}
+  - {fileID: 2100000, guid: d4e34faecb9b9564e941b0a4236003c7, type: 2}
+  - {fileID: 2100000, guid: 94d852a7748a347489661febea5eafc6, type: 2}
+  - {fileID: 2100000, guid: a59fe87939f259d40a7ee37624c9568b, type: 2}
+  - {fileID: 2100000, guid: 3f1e52dec055a3a4f850420ef19cb2b2, type: 2}
 --- !u!1 &2007369105
 GameObject:
   m_ObjectHideFlags: 0
