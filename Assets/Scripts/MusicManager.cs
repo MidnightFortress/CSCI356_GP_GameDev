@@ -11,4 +11,5 @@ public class MusicManager : MonoBehaviour
         get => currentPlaying;
         set => currentPlaying = value;
     }
+    // the music manager to change teh music via trigger
 }
