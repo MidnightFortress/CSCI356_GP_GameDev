@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ladder
   - Monster
+  - Zipline
+  - Accoustic
   layers:
   - Default
   - TransparentFX
