@@ -9,19 +9,10 @@ public class Zipline : MonoBehaviour
     [SerializeField] float zipScale = 0.2f;
     [SerializeField] float arrivalThreshold = 0.5f;
 
-    //[SerializeField] LineRenderer zipCable;
-
     public Transform zipTransform;
 
     bool zipping = false;
     GameObject zipPulley;
-
-    private void Awake()
-    {
-        // set begin and points for zip cable render
-        //zipCable.SetPosition(0, zipTransform.position);
-        //zipCable.SetPosition(1, targetZip.zipTransform.position);
-    }
 
     // Update is called once per frame
     void Update()
