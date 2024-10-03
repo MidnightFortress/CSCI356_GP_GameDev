@@ -11,7 +11,7 @@ public class SkyMan : MonoBehaviour
     private float transitionDuration = 5f;
     private int currrentSkyboxIndex = 0;
     private static int Rotation = Shader.PropertyToID("_Rotation");
-    private float rotationSpeed = 3f;
+    private float rotationSpeed = 15f;
 
     private Material currentSkybox;
     private Material nextSkybox;
