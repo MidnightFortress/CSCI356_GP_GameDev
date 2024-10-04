@@ -11,7 +11,7 @@ public class SkyMan : MonoBehaviour
     private float transitionDuration = 5f;
     private int currrentSkyboxIndex = 0;
     private static int Rotation = Shader.PropertyToID("_Rotation");
-    private float rotationSpeed = 3f;
+    private float rotationSpeed = 15f;
 
     private Material currentSkybox;
     private Material nextSkybox;
@@ -30,9 +30,9 @@ public class SkyMan : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-
+/*
         Debug.Log("Elapsed time: " + elapsedTime);
-        Debug.Log("Current skybox index: " + currrentSkyboxIndex);
+        Debug.Log("Current skybox index: " + currrentSkyboxIndex);*/
 
         RenderSettings.skybox.SetFloat(Rotation, elapsedTime * rotationSpeed);
 
@@ -44,7 +44,7 @@ public class SkyMan : MonoBehaviour
             StartCoroutine(TransitionSkybox(nextSkybox)); 
      
         }
-        Debug.Log("Switched to skybox: " + currrentSkyboxIndex);
+       /* Debug.Log("Switched to skybox: " + currrentSkyboxIndex);*/
     }
 
     IEnumerator TransitionSkybox(Material targetSkybox)
