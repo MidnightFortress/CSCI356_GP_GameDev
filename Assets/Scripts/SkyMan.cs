@@ -30,9 +30,9 @@ public class SkyMan : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-
+/*
         Debug.Log("Elapsed time: " + elapsedTime);
-        Debug.Log("Current skybox index: " + currrentSkyboxIndex);
+        Debug.Log("Current skybox index: " + currrentSkyboxIndex);*/
 
         RenderSettings.skybox.SetFloat(Rotation, elapsedTime * rotationSpeed);
 
@@ -44,7 +44,7 @@ public class SkyMan : MonoBehaviour
             StartCoroutine(TransitionSkybox(nextSkybox)); 
      
         }
-        Debug.Log("Switched to skybox: " + currrentSkyboxIndex);
+       /* Debug.Log("Switched to skybox: " + currrentSkyboxIndex);*/
     }
 
     IEnumerator TransitionSkybox(Material targetSkybox)
