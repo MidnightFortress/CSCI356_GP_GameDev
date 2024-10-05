@@ -18,17 +18,17 @@ public class KeyPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player") && keyInventory.GetKey().Equals("None"))
+        if (other.gameObject.CompareTag("Player") && !keyInventory.HasKey(key))
         {
-            keyInventory.SetKey(key);
+            keyInventory.AddKey(key);
 
-            Debug.Log("You've got the " + key);
+            Debug.Log("You've picked up the " + key);
 
             Destroy(gameObject);
         }
         else
         {
-            Debug.Log("You already have a key!");
+            Debug.Log("You already have that key!");
         }
     }
 

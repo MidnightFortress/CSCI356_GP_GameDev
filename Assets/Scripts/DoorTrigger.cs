@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour, Interactable
 {
     [SerializeField] GameObject[] targets;
-    [SerializeField] GameObject requiredKey;
+    public bool locked;
  
     void OnTriggerEnter(Collider other)
     {  
@@ -26,24 +26,16 @@ public class DoorTrigger : MonoBehaviour, Interactable
         Debug.Log("Closing");
     }
 
+    public void UnlockDoor()
+    {
+        locked = false;
+    }
+
     // closing the doors when leaving the trigger
 
     public void Interact()      // uses raycast and checks for key
     {
-        string key = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyInventory>().GetKey();
-
-        Debug.Log("Player has the " + key);
-
-        if (requiredKey == null)
-        {
-            foreach (GameObject target in targets)
-            {
-
-                target.SendMessage("Activate");
-            }
-        }
-        // check if player has key
-        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<KeyInventory>().GetKey() == requiredKey.name)
+        if(!locked)
         {
             foreach (GameObject target in targets)
             {
