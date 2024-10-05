@@ -18,34 +18,6 @@ public class InsertKey : MonoBehaviour, Interactable
         key = requiredKey.name;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.E) && keyInventory.HasKey(key)) // if player has key
-        //{
-        //    int keyIndex = keyInventory.GetKeyIndex(key);
-
-        //    RaycastHit[] hits = Physics.SphereCastAll(transform.position + new Vector3(0, castOffset, 0), castRadius, Vector3.forward);
-
-        //    // check all ray cast hits 
-        //    foreach (RaycastHit hit in hits)
-        //    {
-        //        if (hit.collider.CompareTag("KeyHole")) // look for keyhole tag
-        //        {
-        //            Vector3 pos = keyLock.transform.position;
-        //            Quaternion rot = keyLock.transform.rotation;
-
-        //            // if keyhole found insert the key
-        //            Debug.Log("Inserting the " + key);
-
-        //            Instantiate(requiredKey, pos, rot);                // create key prefab
-        //            hit.collider.gameObject.GetComponent<DoorTrigger>().Interact();
-        //            keyInventory.SetKeyAtIndex(keyIndex, "None");
-        //        }
-        //    }
-        //}
-    }
-
     public void Interact()
     {
         if (keyInventory.HasKey(key)) // if player has key
