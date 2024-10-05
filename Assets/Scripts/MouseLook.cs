@@ -5,8 +5,10 @@ using UnityEngine;
 [AddComponentMenu("Mouse Look")]
 public class MouseLook: MonoBehaviour
 {
-
+    [SerializeField] private Light flashLight;
     Camera cam;
+ 
+    
     // how quickly to look arouund
     public enum RotationA
     {
@@ -42,6 +44,12 @@ public class MouseLook: MonoBehaviour
         }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (flashLight != null)
+        {
+            flashLight.gameObject.SetActive(false);
+        }
+        // had to do this as there are multilpe objects with this script and it throws errors as we only want the spot light on the camera not player
     }
 
     void OnGUI()
@@ -91,5 +99,11 @@ public class MouseLook: MonoBehaviour
             transform.localEulerAngles = new Vector3(vRot, hRot, 0);
             // no roll
         }
+
+        if (Input.GetKeyDown(KeyCode.F) && flashLight != null) {
+            flashLight.gameObject.SetActive(!flashLight.gameObject.activeSelf);
+        }
+        // toggle the f button to turn the flashlight on and off
+        // dont forget to add the spotlight to all the player characters as there are multiple at the moment
     }
 }

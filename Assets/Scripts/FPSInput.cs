@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -68,5 +69,18 @@ public class FPSInput : MonoBehaviour
 
         playerVelocity.y += gravity * Time.deltaTime; // accellerating the player down
         charControl.Move(playerVelocity * Time.deltaTime * playerSpeed); // moving the player in preconfigured direction
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            playerSpeed *= 3; 
+        }
+        // hold shift to run 3 times the speed
+
+       
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            playerSpeed /= 3; 
+        }
+        // let go of shift to go back to normal
     }
 }
