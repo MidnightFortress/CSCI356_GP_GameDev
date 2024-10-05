@@ -10,11 +10,13 @@ public class FPSInput : MonoBehaviour
 {
     // Variables which can be modified in editor
     public int jumpMax = 2; // The number of times able to jump before needing to touch the ground again
-    public float playerSpeed = 5.0f; // speed for player movement
+    public float walkSpeed = 5.0f; // walk speed for player movement
+    public float runSpeed = 10f; // run speed for player movement
     public float jumpHeight = 0.5f; //how high to jump
     public float gravity = -9.8f; // Gravity Strength
 
     //Internal Variables
+    private float playerSpeed;
     private int airJump = 0; // Count of how many times character jumped since touching the ground
     private CharacterController charControl; // the controler for the character
     private Vector3 playerVelocity; // how fast the player moves
@@ -26,20 +28,31 @@ public class FPSInput : MonoBehaviour
     private void Start()
     {
         charControl = gameObject.GetComponent<CharacterController>();
+        playerSpeed = walkSpeed;
     }
 
     // Updating on each frame
     private void Update()
     {
-        // Getting movement Direction and moveing the character
+        // Getting movement Direction and moving the character
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         move = transform.TransformDirection(move); // transform direction to relative to camera direction
 
         // Resetting values when touching the ground
         grounded = charControl.isGrounded;
-	
-	    // Determining if the character is falling or walking down a incline
-	    if(!grounded)
+
+        // increase player move speed
+        if (Input.GetKey(KeyCode.LeftShift) && grounded)    // change speed only if player grounded
+        {
+            playerSpeed = runSpeed;
+        }
+        else if (grounded)
+        {
+            playerSpeed = walkSpeed;
+        }
+
+        // Determining if the character is falling or walking down a incline
+        if (!grounded)
 	    {
 	        fallTimer += Time.deltaTime;
 	    }
@@ -69,18 +82,5 @@ public class FPSInput : MonoBehaviour
 
         playerVelocity.y += gravity * Time.deltaTime; // accellerating the player down
         charControl.Move(playerVelocity * Time.deltaTime * playerSpeed); // moving the player in preconfigured direction
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            playerSpeed *= 3; 
-        }
-        // hold shift to run 3 times the speed
-
-       
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            playerSpeed /= 3; 
-        }
-        // let go of shift to go back to normal
     }
 }

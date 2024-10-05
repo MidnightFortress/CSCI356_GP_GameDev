@@ -5,18 +5,17 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour, Interactable
 {
     [SerializeField] GameObject[] targets;
+    public bool locked;
  
     void OnTriggerEnter(Collider other)
-    {
-        
-  foreach (GameObject target in targets)
+    {  
+        foreach (GameObject target in targets)
         {
            
                 target.SendMessage("Activate");
         }
 
         // a bool taken from keymanger to only open the door associated with the key held
-
     }
     void OnTriggerExit(Collider other)
     {
@@ -27,15 +26,23 @@ public class DoorTrigger : MonoBehaviour, Interactable
         Debug.Log("Closing");
     }
 
-    // clossing the doors when leaving the trigger
-
-    public void Interact()
+    public void UnlockDoor()
     {
-        foreach (GameObject target in targets)
-        {
+        locked = false;
+    }
 
-            target.SendMessage("Activate");
+    // closing the doors when leaving the trigger
+
+    public void Interact()      // uses raycast and checks for key
+    {
+        if(!locked)
+        {
+            foreach (GameObject target in targets)
+            {
+
+                target.SendMessage("Activate");
+            }
         }
     }
-    }
+}
 
