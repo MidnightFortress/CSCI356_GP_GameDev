@@ -46,7 +46,7 @@ public class FPSInput : MonoBehaviour
         {
             playerSpeed = runSpeed;
         }
-        else
+        else if (grounded)
         {
             playerSpeed = walkSpeed;
         }
