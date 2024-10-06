@@ -7,7 +7,6 @@ public class DoorTrigger : MonoBehaviour, Interactable
     [SerializeField] GameObject[] targets;
     [SerializeField] List<GameObject> requiredKeys;
     public bool locked;
-    private int numUsedKeys = 0;
  
     void OnTriggerEnter(Collider other)
     {  
@@ -31,7 +30,6 @@ public class DoorTrigger : MonoBehaviour, Interactable
     {
         if (requiredKeys.Contains(key))
         {
-            //numUsedKeys++;
             requiredKeys.Remove(key);
         }
         else
