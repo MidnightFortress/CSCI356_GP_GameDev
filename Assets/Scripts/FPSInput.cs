@@ -83,4 +83,8 @@ public class FPSInput : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime; // accellerating the player down
         charControl.Move(playerVelocity * Time.deltaTime * playerSpeed); // moving the player in preconfigured direction
     }
+    public void TakeDamage(float damage)
+    {
+        Debug.Log("Player took " + damage + " damage");
+    }
 }
