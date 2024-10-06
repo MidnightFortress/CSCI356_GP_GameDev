@@ -7813,6 +7813,7 @@ MonoBehaviour:
   - {fileID: 1761198536}
   requiredKeys:
   - {fileID: 1584878845498178590, guid: dc27d1db29b9e4506bf5e80f51dab956, type: 3}
+  - {fileID: 1584878845498178590, guid: e58c7f9614a0c419997979039a8652bf, type: 3}
   locked: 1
 --- !u!4 &586350016
 Transform:
