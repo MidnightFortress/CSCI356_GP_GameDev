@@ -29,12 +29,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8102569368117630222}
+  - {fileID: 70552664701911989}
   - {fileID: 4025061093935959846}
   - {fileID: 7707823749086863157}
   - {fileID: 538781510299720282}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -180, y: -299.546, z: 0}
 --- !u!114 &7616754345982889791
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   DroidDamage: 10
   genralDamage: 10
   spefifcDamage: 20
-  explosionEffect: {fileID: 8102569368117630209}
+  explosionEffect: {fileID: 70552664701911994}
 --- !u!1 &3945830649704741466
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee47644675828514c8b999edaa99ee59, type: 2}
+  - {fileID: 2100000, guid: 7a453bae213a8b04b9e9f8adb81cc8be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -522,7 +522,7 @@ Transform:
   m_Father: {fileID: 1220446144876816250}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
---- !u!1001 &8818184107158068769
+--- !u!1001 &786097036175460506
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -530,26 +530,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 187249111816883162}
     m_Modifications:
-    - target: {fileID: 725748389098120093, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748389098120094, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748389192728893, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807712, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807713, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
       propertyPath: m_Name
       value: CFXR Explosion Smoke 2 Solo (HDR)
@@ -564,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.03
+      value: 2.0299993
       objectReference: {fileID: 0}
     - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -598,35 +578,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748390055121424, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748390055121439, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748390129463915, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748390129463916, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 725748389856807726, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
---- !u!198 &8102569368117630209 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 725748389856807712, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-  m_PrefabInstance: {fileID: 8818184107158068769}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8102569368117630222 stripped
+--- !u!4 &70552664701911989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-  m_PrefabInstance: {fileID: 8818184107158068769}
+  m_PrefabInstance: {fileID: 786097036175460506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &70552664701911994 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 725748389856807712, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+  m_PrefabInstance: {fileID: 786097036175460506}
   m_PrefabAsset: {fileID: 0}

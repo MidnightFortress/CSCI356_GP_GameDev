@@ -5,20 +5,19 @@ using UnityEngine;
 public class Droids : MonoBehaviour
 {
 
-    public float detectionRange = 10f;
-    public float shootDelay = 2f;
-    public GameObject critObject;
-    public GameObject roationObject;
-    public GameObject laserPrefab;
-    public Transform shootPoint;
-    public float laserSpeed = 10f;
-    public float returnRotationSpeed = 2f;
-    public float helth = 100f;
-    public float DroidDamage = 10f;
-    public float genralDamage = 10f;
-    public float spefifcDamage = 20f;
-    public ParticleSystem explosionEffect;
-    
+    [SerializeField] private float detectionRange = 10f;
+    [SerializeField] private float shootDelay = 2f;
+    [SerializeField] private GameObject critObject;
+    [SerializeField] private GameObject roationObject;
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private Transform shootPoint;
+    [SerializeField] private float laserSpeed = 10f;
+    [SerializeField] private float returnRotationSpeed = 2f;
+    [SerializeField] private float helth = 100f;
+    [SerializeField] private float DroidDamage = 10f;
+    [SerializeField] private float critModifier = 2f;
+    [SerializeField] private ParticleSystem explosionEffect;
+
     private bool distoryed = false;
     private Transform player;
     private bool isPlayerInRange = false;
@@ -33,9 +32,10 @@ public class Droids : MonoBehaviour
         oririnalRotatuion = roationObject.transform.rotation;
     }
 
+   
     void Update()
     {
-        if (helth <= 0)
+        if (helth <= 0) 
         {
             if (!distoryed)
             {
@@ -67,7 +67,7 @@ public class Droids : MonoBehaviour
         roationObject.transform.rotation = Quaternion.Lerp(roationObject.transform.rotation, oririnalRotatuion, Time.deltaTime * returnRotationSpeed);
     }
 
-    private void DetectPlayer()
+   private void DetectPlayer()
     {
         float distanceToPlayer = Vector3.Distance(roationObject.transform.position, player.position);
 
@@ -103,11 +103,11 @@ public class Droids : MonoBehaviour
     {
         if (isCrit)
         {
-            helth -= damage * spefifcDamage;
+            helth -= damage * critModifier;
         }
         else
         {
-            helth -= damage * genralDamage;
+            helth -= damage;
         }
     }
 

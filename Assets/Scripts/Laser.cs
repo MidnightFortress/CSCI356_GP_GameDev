@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
     private Vector3 direction;
     private float speed;
-
     private float damage;
 
     void Start(){
         Destroy(gameObject, 5f);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Move the laser in the set direction at the given speed
         transform.position += direction * speed * Time.deltaTime;
     }
 
@@ -35,7 +31,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<FPSInput>().TakeDamage(damage);
+            collision.gameObject.GetComponent<FPSInput>().TakeDamage(damage); //change when get player script
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "droid" | collision.gameObject.tag == "droidCrit")
