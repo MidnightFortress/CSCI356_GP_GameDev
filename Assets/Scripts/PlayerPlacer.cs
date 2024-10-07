@@ -20,6 +20,11 @@ public class PlayerPlacer : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        RespawnPlayer();
+    }
+
+    public void RespawnPlayer()
+    {
         //hasPlacedPlayer = false;
         // placed a bool because it was sometimes placing teh player twice
 
