@@ -40,17 +40,17 @@ public class Health : MonoBehaviour
         }
     }
 
-    void lowerHealth(int damage)
+    public void lowerHealth(int damage)
     {
         healthNumber -=damage;
     }
 
-    void increaseHealth(int heal)
+    public void increaseHealth(int heal)
     {
         healthNumber += heal;
     }
 
-    void resetHealth()
+    public void resetHealth()
     {
         healthNumber = maxHealth;
     }
