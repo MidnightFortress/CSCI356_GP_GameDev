@@ -21,7 +21,8 @@ public class Interactor : MonoBehaviour
 
     void Update()
     {
-        Ray r = new Ray(InteracterSource.position, InteracterSource.forward);
+        Ray r = new(InteracterSource.position, InteracterSource.forward);  // forward interaction
+
         if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out Interactable interactObj))
