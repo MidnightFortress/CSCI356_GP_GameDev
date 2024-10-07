@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zipline : MonoBehaviour
+public class Zipline : MonoBehaviour, Interactable
 {
-    [SerializeField] Zipline targetZip;
-    [SerializeField] float zipSpeed = 400f;
-    [SerializeField] float zipScale = 0.2f;
-    [SerializeField] float arrivalThreshold = 0.5f;
+    [SerializeField] private Zipline targetZip;
+    [SerializeField] private float zipSpeed = 400f;
+    [SerializeField] private float zipScale = 0.2f;
+    [SerializeField] private float arrivalThreshold = 0.5f;
 
     public Transform zipTransform;
 
-    bool zipping = false;
-    GameObject zipPulley;
+    private bool zipping = false;
+    private GameObject zipPulley;
+    private GameObject player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");    // ref to player object
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,12 +27,18 @@ public class Zipline : MonoBehaviour
         if (!zipping || zipPulley == null)
             return;
 
-        zipPulley.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * zipSpeed * Time.deltaTime, ForceMode.Acceleration);
+        zipPulley.GetComponent<Rigidbody>().AddForce((targetZip.zipTransform.position - zipTransform.position).normalized * Time.deltaTime * zipSpeed, ForceMode.Acceleration);
 
         if (Vector3.Distance(zipPulley.transform.position, targetZip.zipTransform.position) <= arrivalThreshold)
         {
             ResetZipline();
         }
+    }
+
+    // interact function triggers zipline use
+    public void Interact()
+    {
+        StartZipline(player);
     }
 
     public void StartZipline(GameObject player)
@@ -44,7 +56,7 @@ public class Zipline : MonoBehaviour
 
         // disable player control while zipping
         player.GetComponent<FPSInput>().enabled = false;
-        player.transform.position += Vector3.up * 0.5f;         // little move up to simulate grabbing on to pulley
+        player.transform.position += Vector3.up * 0.5f;         // little move upward to simulate grabbing on to zipline pulley
 
         // set zip pulley to be parent of player
         player.transform.SetParent(zipPulley.transform);
