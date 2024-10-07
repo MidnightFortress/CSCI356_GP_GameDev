@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3561,7 +3561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpMax: 2
-  playerSpeed: 5
+  walkSpeed: 5
+  runSpeed: 10
   jumpHeight: 0.5
   gravity: -9.8
   fallDisable: 0.1
@@ -3975,9 +3976,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 365a411ec25fe0c429bb0b6de45ee47c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8fd222467aa47a94ea094ee9fede4f9b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 1

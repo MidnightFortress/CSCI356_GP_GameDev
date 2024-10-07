@@ -9,12 +9,20 @@ public class Health : MonoBehaviour
 
     private int healthNumber;
     private Text healthDisplay;
-    
+    private PlayerPlacer playerPlacer;
+
     // Start is called before the first frame update
     void Start()
     {
         healthDisplay = GameObject.Find("Health").GetComponent<Text>();
         healthNumber = maxHealth;
+
+        playerPlacer = GetComponent<PlayerPlacer>();
+        if (playerPlacer == null)
+        {
+            Debug.LogError("Health Script: PlayerPlacer script not found on the player.");
+        }
+
     }
 
     // Update is called once per frame
@@ -22,8 +30,13 @@ public class Health : MonoBehaviour
     {
         if(healthNumber <= 0)
         {
-            gameObject.transform.position = GameObject.Find("PlayerSpawn").GetComponent<Transform>().position;
+            if (playerPlacer != null)
+            {
+                playerPlacer.RespawnPlayer();  // call lthe player placer script
+            }
+
             healthNumber = maxHealth;
+
         }
     }
 
