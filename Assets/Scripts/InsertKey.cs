@@ -33,6 +33,7 @@ public class InsertKey : MonoBehaviour, Interactable
 
             door.Interact();                                // call interact to open door
             keyInventory.SetKeyAtIndex(keyIndex, "None");   // set key inventory position to noone
+            gameObject.SetActive(false);
         }
     }
 }
