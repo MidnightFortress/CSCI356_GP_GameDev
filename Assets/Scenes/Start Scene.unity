@@ -3478,7 +3478,7 @@ GameObject:
   - component: {fileID: 391336298}
   - component: {fileID: 391336297}
   m_Layer: 5
-  m_Name: Weapon
+  m_Name: WeaponName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7809,7 +7809,7 @@ GameObject:
   - component: {fileID: 1048389170}
   - component: {fileID: 1048389169}
   m_Layer: 5
-  m_Name: Ammo
+  m_Name: AmmoCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10346,6 +10346,7 @@ GameObject:
   - component: {fileID: 1534372605}
   - component: {fileID: 1534372615}
   - component: {fileID: 1534372616}
+  - component: {fileID: 1534372617}
   m_Layer: 0
   m_Name: TestPlayer (start area1)
   m_TagString: Player
@@ -10427,6 +10428,7 @@ MonoBehaviour:
   jumpHeight: 0.5
   gravity: -9.8
   fallDisable: 0.1
+  fallDamageSpeed: -10
 --- !u!114 &1534372610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10561,6 +10563,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &1534372617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534372604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a2f2f96e0095048b6d777b39027978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: None
+  currentAmmo: 0
 --- !u!1 &1536864726
 GameObject:
   m_ObjectHideFlags: 0

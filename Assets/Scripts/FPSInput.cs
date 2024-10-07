@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -14,6 +15,8 @@ public class FPSInput : MonoBehaviour
     public float runSpeed = 10f; // run speed for player movement
     public float jumpHeight = 0.5f; //how high to jump
     public float gravity = -9.8f; // Gravity Strength
+    public float fallDisable = 1.0f; // Time the character is fall till controls diabled
+    public float fallDamageSpeed = -10; // downward speed for fall damage 
 
     //Internal Variables
     private float playerSpeed;
@@ -21,7 +24,6 @@ public class FPSInput : MonoBehaviour
     private CharacterController charControl; // the controler for the character
     private Vector3 playerVelocity; // how fast the player moves
     private bool grounded; // is the character on the ground
-    public float fallDisable = 1.0f; // Time the character is fall till controls diabled
     private float fallTimer = 0.0f; // time the character has been falling
 
     //Activation when the object is created
@@ -58,7 +60,12 @@ public class FPSInput : MonoBehaviour
 	    }
 	    else
 	    {
-	        fallTimer = 0.0f;
+            if (fallTimer > 0.3 && playerVelocity.y < fallDamageSpeed) // fall famage
+            {
+                gameObject.GetComponent<Health>().lowerHealth(-(int)playerVelocity.y);
+
+            }
+            fallTimer = 0.0f;
 	    }
 
 	    if(fallTimer < fallDisable)
