@@ -38,5 +38,9 @@ public class Interactor : MonoBehaviour
                 interactText.SetActive(false);
             }
         }
+        else
+        {
+            interactText.SetActive(false);
+        }
     }
 }
