@@ -32,10 +32,11 @@ public class Health : MonoBehaviour
         {
             if (playerPlacer != null)
             {
-                playerPlacer.RespawnPlayer();  // Respawn player when health is zero
+                playerPlacer.RespawnPlayer();  // call lthe player placer script
             }
 
             healthNumber = maxHealth;
+
         }
     }
 
