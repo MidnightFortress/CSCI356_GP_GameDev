@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ladder
-  - Monster
   - Zipline
   - Accoustic
   - KeyHole
+  - droid
+  - droidCrit
   layers:
   - Default
   - TransparentFX
