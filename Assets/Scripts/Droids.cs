@@ -14,7 +14,7 @@ public class Droids : MonoBehaviour
     [SerializeField] private float laserSpeed = 10f;
     [SerializeField] private float returnRotationSpeed = 2f;
     [SerializeField] private float helth = 100f;
-    [SerializeField] private float DroidDamage = 10f;
+    [SerializeField] private int DroidDamage = 10;
     [SerializeField] private float critModifier = 2f;
     [SerializeField] private ParticleSystem explosionEffect;
 

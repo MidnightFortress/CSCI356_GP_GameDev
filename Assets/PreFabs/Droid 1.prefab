@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2669898641134421376}
   - component: {fileID: 3536750881089706269}
   - component: {fileID: 6390881925308241491}
+  - component: {fileID: 6041816629101917026}
   m_Layer: 0
   m_Name: base low
   m_TagString: droid
@@ -107,6 +108,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &6041816629101917026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377418145419290071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c331ada4ffdd8f438cd3006fa729168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentDroid: {fileID: 1751085985080530263}
 --- !u!1 &3149195385040006878
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,14 +150,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1897209678679766825}
+  - {fileID: 7975380152822740397}
   - {fileID: 199579948095908612}
   - {fileID: 5282809885011561518}
   - {fileID: 8819024944641984678}
   - {fileID: 1896870850871223652}
   - {fileID: 2617220369012724203}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1751085985080530263
 MonoBehaviour:
@@ -167,9 +181,8 @@ MonoBehaviour:
   returnRotationSpeed: 2
   helth: 100
   DroidDamage: 10
-  genralDamage: 10
-  spefifcDamage: 20
-  explosionEffect: {fileID: 1897209678679766822}
+  critModifier: 2
+  explosionEffect: {fileID: 7975380152822740386}
 --- !u!1 &3289278914087259976
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +195,7 @@ GameObject:
   - component: {fileID: 4677456852704058787}
   - component: {fileID: 6143381322385104274}
   - component: {fileID: 990044080505051785}
+  - component: {fileID: 2973431763698846676}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: droidCrit
@@ -278,6 +292,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2973431763698846676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289278914087259976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c331ada4ffdd8f438cd3006fa729168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentDroid: {fileID: 1751085985080530263}
 --- !u!1 &3332585691479619526
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,6 +317,7 @@ GameObject:
   - component: {fileID: 1267119490446339205}
   - component: {fileID: 7874075262860547149}
   - component: {fileID: 2117923355879412799}
+  - component: {fileID: 962273823957941723}
   m_Layer: 0
   m_Name: base mid
   m_TagString: droid
@@ -385,6 +413,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &962273823957941723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332585691479619526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c331ada4ffdd8f438cd3006fa729168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentDroid: {fileID: 1751085985080530263}
 --- !u!1 &3355753951941232432
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7059127109548743075}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: laserEmiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,6 +469,7 @@ GameObject:
   - component: {fileID: 4082137087218553161}
   - component: {fileID: 5475157053327406905}
   - component: {fileID: 6410550090380873049}
+  - component: {fileID: 8624171649330502821}
   m_Layer: 0
   m_Name: in base low mid
   m_TagString: droid
@@ -523,6 +565,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &8624171649330502821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961856079644970734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c331ada4ffdd8f438cd3006fa729168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentDroid: {fileID: 1751085985080530263}
 --- !u!1 &7853516508955186625
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +590,7 @@ GameObject:
   - component: {fileID: 2291559264976540071}
   - component: {fileID: 1668992378847415422}
   - component: {fileID: 2826081801855683717}
+  - component: {fileID: 3841982872617648581}
   m_Layer: 0
   m_Name: base top
   m_TagString: droid
@@ -631,6 +687,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &3841982872617648581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853516508955186625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c331ada4ffdd8f438cd3006fa729168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentDroid: {fileID: 1751085985080530263}
 --- !u!1 &8576673516014377358
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +712,7 @@ GameObject:
   - component: {fileID: 7350666974918045708}
   - component: {fileID: 878638252679470066}
   - component: {fileID: 1869145517501064659}
+  - component: {fileID: 4879982611384267122}
   m_Layer: 0
   m_Name: in base mid top
   m_TagString: droid
@@ -738,7 +808,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!1001 &1172728614405929990
+--- !u!114 &4879982611384267122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576673516014377358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c331ada4ffdd8f438cd3006fa729168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentDroid: {fileID: 1751085985080530263}
+--- !u!1001 &7258779705078791810
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -746,55 +829,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4051600577094920880}
     m_Modifications:
-    - target: {fileID: 725748389192728893, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807714, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_Name
-      value: CFXR Explosion Smoke 2 Solo (HDR)
+      value: Explosion Smoke
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.853
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.70710677
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
+    - target: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -802,14 +881,14 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
---- !u!198 &1897209678679766822 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
+--- !u!198 &7975380152822740386 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 725748389856807712, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-  m_PrefabInstance: {fileID: 1172728614405929990}
+  m_CorrespondingSourceObject: {fileID: 725748389856807712, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
+  m_PrefabInstance: {fileID: 7258779705078791810}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1897209678679766825 stripped
+--- !u!4 &7975380152822740397 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 725748389856807727, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
-  m_PrefabInstance: {fileID: 1172728614405929990}
+  m_CorrespondingSourceObject: {fileID: 725748389856807727, guid: 45691d7fb1d1eba40b5cf4c6c7540bab, type: 3}
+  m_PrefabInstance: {fileID: 7258779705078791810}
   m_PrefabAsset: {fileID: 0}
