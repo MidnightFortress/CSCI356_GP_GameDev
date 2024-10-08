@@ -9,7 +9,6 @@ public class MovingPlatform : MonoBehaviour
 
     //public Transform pointA;
     //public Transform pointB;
-    //public Transform pointC;
 
     Transform currentPoint;
     Transform nextPoint;
