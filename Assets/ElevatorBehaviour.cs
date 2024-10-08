@@ -60,11 +60,19 @@ public class ElevatorBehaviour : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        // reset start time
-        startTime = Time.time;
+        if (transform.childCount == 0) // check player on platform
+        {
+            // display UI message to stand on platform
+            Debug.Log("Stand on platform!");
+        }
+        else
+        {
+            // reset start time
+            startTime = Time.time;
 
-        //start elevator
-        moving = true;
+            //start elevator
+            moving = true;
+        }
     }
 
     // parent player to platform while in contact

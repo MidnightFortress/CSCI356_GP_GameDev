@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpMax: 2
   walkSpeed: 5
-  runSpeed: 30
+  runSpeed: 10
   jumpHeight: 0.5
   gravity: -9.8
   fallDisable: 0.1
