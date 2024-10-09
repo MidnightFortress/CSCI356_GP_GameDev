@@ -6,7 +6,10 @@ public class PlayerPlacer : MonoBehaviour
     private Vector3 startPos;
     //private bool hasPlacedPlayer = false;
     private Quaternion startRot;
+    GameObject respawnObject;
 
+    
+    
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -28,50 +31,76 @@ public class PlayerPlacer : MonoBehaviour
         //hasPlacedPlayer = false;
         // placed a bool because it was sometimes placing teh player twice
 
-        GameObject respawnObject = GameObject.FindGameObjectWithTag("Respawn");
+      respawnObject = GameObject.FindGameObjectWithTag("Respawn");
         if (respawnObject != null)
         {
-            PlayerPlacer respawnPlacer = respawnObject.GetComponent<PlayerPlacer>();
-            if (respawnPlacer != null)
-            {
-                startPos = respawnObject.transform.position;
-                startRot = respawnObject.transform.rotation;
-                Debug.Log("StartPos from Respawn object: " + startPos);
+            
+            startPos = respawnObject.transform.position;
+            startRot = respawnObject.transform.rotation;
+
+            Debug.Log("StartPos from Respawn object: " + startPos);
                 // finding the spawn point, as i tagged it as respwan
 
                 GameObject player = GameObject.FindWithTag("Player");
                 if (player != null)
                 {
-                    Debug.Log("Original Player Position before placement: " + player.transform.position);
+                Debug.Log("Original Player Position before placement: " + player.transform.position);
+                FPSInput fpsInput = player.GetComponent<FPSInput>();
+                Health healthMe = player.GetComponent<Health>();
 
-                    player.transform.position = startPos;
-                    player.transform.rotation = startRot;
+                CharacterController charControl = player.GetComponent<CharacterController>();
 
-                    Debug.Log("Player Placed at: " + startPos);
-
-                    Debug.Log("Actual Player Position after placement: " + player.transform.position);
-
-                    //hasPlacedPlayer = true;
-
-                    // this if gets the player and places them in the spawn point. tyhere is a bit of debugging as well, to make sure it is working
-                    // had a bit of a problem with this as sometimes it works sometimes it doesnt. If it doesnt work it just leaves the player in the same position as scene 1
-                    // to counter this i moved scene 1 to the dsame position as scene 2, so if it doenst work it should hopefully drop the player in the same room in scene 2
+                // Disable the CharacterController temporarily
+                if (charControl != null)
+                {
+                    charControl.enabled = false; // Turn off the CharacterController
                 }
+
+                fpsInput.enabled = false;
+
+                fpsInput.ResetVelocity();
+
+                player.transform.position = startPos;
+                player.transform.rotation = startRot;
+
+                Debug.Log("Player Placed at: " + startPos);
+
+                Debug.Log("Actual Player Position after placement: " + player.transform.position);
+
+                fpsInput.enabled = true;
+               
+
+               /* healthMe.resetHealth();*/
+
+                if (charControl != null)
+                {
+                    charControl.enabled = true; // Turn on the CharacterController
+                }
+
+                // this if gets the player and places them in the spawn point. tyhere is a bit of debugging as well, to make sure it is working
+                // had a bit of a problem with this as sometimes it works sometimes it doesnt. If it doesnt work it just leaves the player in the same position as scene 1
+                // to counter this i moved scene 1 to the dsame position as scene 2, so if it doenst work it should hopefully drop the player in the same room in scene 2
+
+                // figured out the problem the movement and the char controller were fucking with the placer. you have to turn them off, place the player and then turn it back on
+            }
                 else
                 {
                     Debug.LogError("Player not found in the scene.");
                 }
-            }
-            else
+        }
+          else
             {
                 Debug.LogError("Respawn object does not have the PlayerPlacer script.");
             }
         }
-        else
-        {
-            Debug.LogError("No object tagged 'Respawn' found in the scene.");
-        }
-        // extra debugs
+    // extra debugs
+    public void SetRespawn()
+    {
+        respawnObject = GameObject.FindGameObjectWithTag("Respawn");
+        startPos = new Vector3(191,92,240);
+       respawnObject.transform.position = startPos;
+        Debug.Log("Respawn point updated.");
     }
+
 }
 
