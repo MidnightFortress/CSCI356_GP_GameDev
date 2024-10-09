@@ -10509,6 +10509,7 @@ GameObject:
   - component: {fileID: 1534372616}
   - component: {fileID: 1534372617}
   - component: {fileID: 1534372618}
+  - component: {fileID: 1534372619}
   m_Layer: 0
   m_Name: TestPlayer (start area1)
   m_TagString: Player
@@ -10738,6 +10739,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hookText: 0
+--- !u!114 &1534372619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534372604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc72e6fcadfc4ff9959cf07e1fa4430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1536864726
 GameObject:
   m_ObjectHideFlags: 0
