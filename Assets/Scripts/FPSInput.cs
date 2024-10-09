@@ -94,4 +94,11 @@ public class FPSInput : MonoBehaviour
     {
         Debug.Log("Player took " + damage + " damage");
     }
+
+    public void ResetVelocity()
+    {
+        playerVelocity = Vector3.zero;
+        airJump = 0;
+    }
+
 }
