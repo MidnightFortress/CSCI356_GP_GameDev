@@ -19,22 +19,32 @@ public class Health : MonoBehaviour
         healthDisplay = GameObject.Find("Health").GetComponent<Text>();
         healthNumber = maxHealth;
 
-        playerPlacer = GetComponent<PlayerPlacer>();
-        if (playerPlacer == null)
-        {
-            Debug.LogError("Health Script: PlayerPlacer script not found on the player.");
-        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(healthNumber <= 0)
+        GameObject respawnObject = GameObject.FindGameObjectWithTag("Respawn");
+        if (respawnObject != null)
+        {
+            playerPlacer = respawnObject.GetComponent<PlayerPlacer>();
+        }
+
+        if (playerPlacer == null)
+        {
+            Debug.LogError("Health Script: PlayerPlacer script not found on the Respawn object.");
+        }
+        /*Debug.Log("Health" + healthNumber);*/
+        if (healthNumber <= 0)
         {
             if (playerPlacer != null)
             {
-                playerPlacer.RespawnPlayer();  // call lthe player placer script
+                playerPlacer.RespawnPlayer();
+                Debug.Log("PlayerPlaced Called");// call lthe player placer script
+            } else
+            {
+                Debug.Log("No player placer in scene");
             }
 
             healthNumber = maxHealth;
