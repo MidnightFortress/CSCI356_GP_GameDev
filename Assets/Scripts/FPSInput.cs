@@ -18,6 +18,10 @@ public class FPSInput : MonoBehaviour
     public float fallDisable = 1.0f; // Time the character is fall till controls diabled
     public float fallDamageSpeed = -10; // downward speed for fall damage 
 
+    // Variables referenced in other scripts
+    public State state;
+    public Grappler grappRef;
+
     //Internal Variables
     private float playerSpeed;
     private int airJump = 0; // Count of how many times character jumped since touching the ground
@@ -25,16 +29,52 @@ public class FPSInput : MonoBehaviour
     private Vector3 playerVelocity; // how fast the player moves
     private bool grounded; // is the character on the ground
     private float fallTimer = 0.0f; // time the character has been falling
+    private GameObject MainCamera; // finds camera to reference grappler script
 
     //Activation when the object is created
     private void Start()
     {
+        
         charControl = gameObject.GetComponent<CharacterController>();
         playerSpeed = walkSpeed;
+        MainCamera = GameObject.FindWithTag("MainCamera");
+        grappRef = MainCamera.GetComponent<Grappler>();
+
+    }
+
+    public enum State
+    {
+        Normal,
+        GrappleStart,
+        Grappling
+    }
+
+    public void StateChange(State newState)
+    {
+        state = newState;
     }
 
     // Updating on each frame
     private void Update()
+    {
+        switch(state)
+        {
+            default:
+            case State.Normal:
+                playerMovement();
+                grappRef.GrappleReady();
+                break;
+            case State.GrappleStart:
+                playerMovement();
+                grappRef.GrappleStarter();
+                break;
+            case State.Grappling:
+                break;
+        }
+    }
+
+    // called per frame if character state allows it
+    private void playerMovement()
     {
         // Getting movement Direction and moving the character
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
