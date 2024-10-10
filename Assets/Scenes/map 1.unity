@@ -8048,6 +8048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  waitTime: 10
 --- !u!114 &520419075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30712,8 +30713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9823a28140bff4486ac9dea11827fe75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skyboxs:
-  - {fileID: 2100000, guid: 3f1e52dec055a3a4f850420ef19cb2b2, type: 2}
+  skybox: {fileID: 2100000, guid: 3f1e52dec055a3a4f850420ef19cb2b2, type: 2}
 --- !u!1001 &1998571004
 PrefabInstance:
   m_ObjectHideFlags: 0
