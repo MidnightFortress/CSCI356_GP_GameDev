@@ -4,12 +4,9 @@ using UnityEngine.SceneManagement;
 public class PlayerPlacer : MonoBehaviour
 {
     private Vector3 startPos;
-    //private bool hasPlacedPlayer = false;
     private Quaternion startRot;
     GameObject respawnObject;
 
-    
-    
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -28,9 +25,6 @@ public class PlayerPlacer : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        //hasPlacedPlayer = false;
-        // placed a bool because it was sometimes placing teh player twice
-
       respawnObject = GameObject.FindGameObjectWithTag("Respawn");
         if (respawnObject != null)
         {
@@ -50,11 +44,10 @@ public class PlayerPlacer : MonoBehaviour
 
                 CharacterController charControl = player.GetComponent<CharacterController>();
 
-                // Disable the CharacterController temporarily
                 if (charControl != null)
                 {
-                    charControl.enabled = false; // Turn off the CharacterController
-                }
+                    charControl.enabled = false; 
+                } // turn this asshole off messes with the respawn
 
                 fpsInput.enabled = false;
 
@@ -68,9 +61,6 @@ public class PlayerPlacer : MonoBehaviour
                 Debug.Log("Actual Player Position after placement: " + player.transform.position);
 
                 fpsInput.enabled = true;
-               
-
-               /* healthMe.resetHealth();*/
 
                 if (charControl != null)
                 {
@@ -100,6 +90,7 @@ public class PlayerPlacer : MonoBehaviour
         startPos = new Vector3(191,92,240);
        respawnObject.transform.position = startPos;
         Debug.Log("Respawn point updated.");
+        // this is so we can create a checkpoint, and the player doesnt have to reload and walk all the way back after death
     }
 
 }
