@@ -6,9 +6,11 @@ public class Grappler : MonoBehaviour
 {
     [SerializeField] private Transform grappleRopeTransform;
 
+    
     public GameObject player;
     public GameObject point;
-    public float grapple_speed;
+    
+    public float maxRange = 10f;
     private FPSInput fpsInput;
     private Vector3 grappleMeasure;
     //public GameObject mainCamera;
@@ -66,7 +68,7 @@ public class Grappler : MonoBehaviour
 
             RaycastHit hit; // stores ray intersection information
 
-            if (Physics.Raycast(ray, out hit, 10f))
+            if (Physics.Raycast(ray, out hit, maxRange))
             {
                 //debugHitPointTransform.position = point;
                 // get the GameObject that was hit
