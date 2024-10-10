@@ -18,6 +18,10 @@ public class FPSInput : MonoBehaviour
     public float fallDisable = 1.0f; // Time the character is fall till controls diabled
     public float fallDamageSpeed = -10; // downward speed for fall damage 
 
+    // Variables referenced in other scripts
+    public State state;
+    public Grappler grappRef;
+
     //Internal Variables
     private float playerSpeed;
     private int airJump = 0; // Count of how many times character jumped since touching the ground
