@@ -22,6 +22,8 @@ public class Grappler : MonoBehaviour
 
     void Start()
     {
+        GameObject grappleShooter = GameObject.FindWithTag("Grapple-rope");
+        grappleRopeTransform = grappleShooter.transform;
 
         player = GameObject.FindWithTag("Player");
         //cam = mainCamera.GetComponent<Camera>();

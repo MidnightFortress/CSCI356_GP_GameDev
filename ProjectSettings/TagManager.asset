@@ -10,6 +10,8 @@ TagManager:
   - KeyHole
   - droid
   - droidCrit
+  - Grapple-able
+  - Grapple-rope
   layers:
   - Default
   - TransparentFX
