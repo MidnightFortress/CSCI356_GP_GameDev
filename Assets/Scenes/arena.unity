@@ -5659,6 +5659,8 @@ MonoBehaviour:
   fallDamageSpeed: -10
   state: 0
   grappRef: {fileID: 0}
+  state: 0
+  grappRef: {fileID: 0}
 --- !u!114 &1186949658
 MonoBehaviour:
   m_ObjectHideFlags: 0
