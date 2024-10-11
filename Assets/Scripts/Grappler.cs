@@ -6,6 +6,7 @@ public class Grappler : MonoBehaviour
 {
     [SerializeField] private Transform grappleRopeTransform;
 
+    private GameObject grappleHookText;
     
     public GameObject player;
     public GameObject point;
@@ -20,6 +21,7 @@ public class Grappler : MonoBehaviour
     private float grappleRopeLength;
     private Vector3 grappleLocation;
     private GameObject hitObject;
+    private bool inrange = false;
 
 
     void Start()
@@ -28,7 +30,6 @@ public class Grappler : MonoBehaviour
         grappleRopeTransform = grappleShooter.transform;
 
         player = GameObject.FindWithTag("Player");
-        //cam = mainCamera.GetComponent<Camera>();
         cam = GetComponent<Camera>();
         Debug.Log(cam);
 
@@ -36,21 +37,34 @@ public class Grappler : MonoBehaviour
         fpsInput = player.GetComponent<FPSInput>();
         Debug.Log(fpsInput);
 
+        grappleHookText = GameObject.Find("GrappleHookText");
+        Debug.Log(grappleHookText + "found");
+        grappleHookText.SetActive(false);
+
     }
-    
-    public void GrappleStarter()
+
+    private void OnGUI()
+    {
+        if (inrange)
+        {
+            //Debug.Log(grappleHookText);
+            grappleHookText.SetActive(true);
+        }
+        else
+            grappleHookText?.SetActive(false);
+    }
+        public void GrappleStarter()
     {
         grappleRopeTransform.LookAt(grappleLocation);
 
-        grappleRopeLength += 10f * Time.deltaTime;
+        grappleRopeLength += 30f * Time.deltaTime;
         grappleRopeTransform.localScale = new Vector3(1, 1, grappleRopeLength);
 
         if(grappleRopeLength >= Vector3.Distance(transform.position, grappleLocation))
         {
 
             fpsInput.state = FPSInput.State.Grappling;
-            Debug.Log(hitObject);
-            //compName = player.GetComponent<FPSInput>.grapple();---------------
+            //Debug.Log(hitObject);
             StartCoroutine(Grapple(hitObject.transform));
         }
         
@@ -59,8 +73,6 @@ public class Grappler : MonoBehaviour
 
     public void GrappleReady()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
             Vector3 point = new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2, 0);
 
             // create a ray from the point in the direction of the camera
@@ -70,41 +82,50 @@ public class Grappler : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, maxRange))
             {
-                //debugHitPointTransform.position = point;
+                
                 // get the GameObject that was hit
                 hitObject = hit.transform.gameObject;
 
-                //hitObject.tag
+                
 
-                //Grapple_point target = hitObject.GetComponent<Grapple_point>();
+               
 
-                Debug.Log("Thing hit");
+                //Debug.Log("Thing hit");
 
                 if (hitObject.CompareTag("Grapple-able"))
                 {
+                    inrange = true;
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
 
-                    //Debug.Log("Correct thing hit");
-                    grappleLocation = hitObject.transform.position;
-                    grappleRopeLength = 0f;
-                    fpsInput.StateChange(FPSInput.State.GrappleStart);
-                    Debug.Log("Start reeling");
-                    
-                    
-                    Debug.Log("Coroutine finished");
+                        //Debug.Log("Correct thing hit");
+                        grappleLocation = hitObject.transform.position;
+                        grappleRopeLength = 0f;
+                        fpsInput.StateChange(FPSInput.State.GrappleStart);
+                        inrange = false;
+                        //Debug.Log("Start reeling");
+                        
 
-                    
 
+                        
+
+
+                    }
                     
                 }
+                else
+                    inrange = false;
+                
             }
-        }
-        }
+            else
+                inrange = false;
+    }
 
     private IEnumerator Grapple(Transform specOrb)
     {
         Vector3 startPosition = transform.position;
         Vector3 endPosition = specOrb.position;
-        //float timeFlying = 0f;
+        
         grappleMeasure = (endPosition - startPosition).normalized;
         
         Vector3 stopPoint = endPosition - grappleMeasure * stopDistance;
@@ -115,8 +136,8 @@ public class Grappler : MonoBehaviour
             grappleRopeTransform.localScale = new Vector3(1, 1, grappleRopeLength);
 
             player.transform.position = Vector3.MoveTowards(player.transform.position, stopPoint, 10 * Time.deltaTime);
-            Debug.Log(player.transform.position + "player loc");
-            Debug.Log(stopPoint + "end location");
+            //Debug.Log(player.transform.position + "player loc");
+            //Debug.Log(stopPoint + "end location");
             yield return null;
             
         }
