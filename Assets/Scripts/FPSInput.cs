@@ -17,6 +17,7 @@ public class FPSInput : MonoBehaviour
     public float gravity = -9.8f; // Gravity Strength
     public float fallDisable = 1.0f; // Time the character is fall till controls diabled
     public float fallDamageSpeed = -10; // downward speed for fall damage 
+	public int fallDamageMultiplier = 3; //multiply the fall damage by to make bigger
 
     // Variables referenced in other scripts
     public State state;
@@ -102,7 +103,7 @@ public class FPSInput : MonoBehaviour
 	    {
             if (fallTimer > 0.3 && playerVelocity.y < fallDamageSpeed) // fall famage
             {
-                gameObject.GetComponent<Health>().lowerHealth(-(int)playerVelocity.y);
+                gameObject.GetComponent<Health>().lowerHealth(-(int)playerVelocity.y * fallDamageMultiplier);
 
             }
             fallTimer = 0.0f;
