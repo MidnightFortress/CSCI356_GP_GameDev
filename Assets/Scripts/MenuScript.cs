@@ -14,4 +14,6 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    // followed https://www.youtube.com/watch?v=8kVeDbuqokU
 }
