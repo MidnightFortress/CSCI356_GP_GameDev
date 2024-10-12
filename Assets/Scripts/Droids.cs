@@ -18,7 +18,7 @@ public class Droids : MonoBehaviour
     [SerializeField] private float critModifier = 2f;
     [SerializeField] private ParticleSystem explosionEffect;
 
-    //private bool distoryed = false;
+    private bool distoryed = false;
     private Transform player;
     private bool isPlayerInRange = false;
     private bool hasShot = false;
@@ -35,9 +35,12 @@ public class Droids : MonoBehaviour
    
     void Update()
     {
+        if (distoryed)  // don't run update code if droid is destroyed
+            return;
 
-        if (helth <= 0)     // destory droid
+        if (helth <= 0)     // destory droid if health depleted
         {
+            distoryed = true;
             StartCoroutine(Explode());
         }
         else
@@ -87,7 +90,7 @@ public class Droids : MonoBehaviour
     {
         explosionEffect.Play();
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
 
         Destroy(gameObject);
     }

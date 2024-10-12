@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // acts as a pick up item to engage handgun script behaviors
@@ -14,12 +13,10 @@ public class HandGunPickup : MonoBehaviour
         // check player has collided
         if (other.transform.CompareTag("Player"))
         {
-            // disable other weapon scripts on child camera
-            //other.transform.GetChild(0).GetComponent<MachineGun>().enabled = false;
-            //other.transform.GetChild(0).GetComponent<Grenade>().enabled = false;
-
             // enable handgun script
             other.transform.GetChild(0).GetComponent<HandGun>().enabled = true;
+
+            // also need to add to inventory
 
             // start respawn coroutine
             StartCoroutine(RespawnPickup(handGun));
