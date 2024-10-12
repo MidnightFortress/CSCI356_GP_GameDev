@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DMenu = GameObject.Find("DeathCanvas").GetComponent<DeathMenu>();
+        DMenu = GameObject.Find("DeathCanvasMap").GetComponent<DeathMenu>();
         if (healthNumber <= 0)
         {
             DMenu.youDied();
