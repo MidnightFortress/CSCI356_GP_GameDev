@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7707823749086863157}
   - {fileID: 538781510299720282}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -180, y: -299.546, z: 0}
 --- !u!114 &7616754345982889791
 MonoBehaviour:
@@ -59,7 +59,7 @@ MonoBehaviour:
   helth: 100
   DroidDamage: 10
   critModifier: 2
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 725748389856807712, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
 --- !u!108 &-3044212797605643384
 Light:
   m_ObjectHideFlags: 0

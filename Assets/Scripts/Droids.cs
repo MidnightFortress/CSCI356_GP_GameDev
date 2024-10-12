@@ -18,7 +18,7 @@ public class Droids : MonoBehaviour
     [SerializeField] private float critModifier = 2f;
     [SerializeField] private ParticleSystem explosionEffect;
 
-    private bool distoryed = false;
+    //private bool distoryed = false;
     private Transform player;
     private bool isPlayerInRange = false;
     private bool hasShot = false;
@@ -35,19 +35,14 @@ public class Droids : MonoBehaviour
    
     void Update()
     {
-        if (helth <= 0) 
+
+        if (helth <= 0)     // destory droid
         {
-            if (!distoryed)
-            {
-                distoryed = true;
-                explosionEffect.Play();
-                roationObject.SetActive(false);
-                Destroy(this);
-            }
+            StartCoroutine(Explode());
         }
         else
         {
-            DetectPlayer();
+            DetectPlayer();     // target and attack player
 
             if (isPlayerInRange && !hasShot)
             {
@@ -60,6 +55,41 @@ public class Droids : MonoBehaviour
         }
 
 
+        //if (helth <= 0) 
+        //{
+        //    if (!distoryed)
+        //    {
+        //        distoryed = true;
+        //        explosionEffect.Play();
+        //        roationObject.SetActive(false);
+        //        Destroy(this);
+        //    }
+        //}
+        //else
+        //{
+        //    DetectPlayer();
+
+        //    if (isPlayerInRange && !hasShot)
+        //    {
+        //        StartCoroutine(ShootLaser());
+        //    }
+        //    else if (!isPlayerInRange && !hasShot)
+        //    {
+        //        ReturnToOriginalRoation();
+        //    }
+        //}
+
+
+    }
+
+    // cooroutine to run explosion effect on droid destroy
+    public IEnumerator Explode()
+    {
+        explosionEffect.Play();
+        
+        yield return new WaitForSeconds(2);
+
+        Destroy(gameObject);
     }
 
     private void ReturnToOriginalRoation()
