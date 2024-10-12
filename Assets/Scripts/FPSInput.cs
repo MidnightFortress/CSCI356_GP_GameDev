@@ -58,7 +58,7 @@ public class FPSInput : MonoBehaviour
     // Updating on each frame
     private void Update()
     {
-        switch(state)
+        switch (state)
         {
             default:
             case State.Normal:

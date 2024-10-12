@@ -53,7 +53,8 @@ public class Grappler : MonoBehaviour
         else
             grappleHookText?.SetActive(false);
     }
-        public void GrappleStarter()
+
+    public void GrappleStarter()
     {
         grappleRopeTransform.LookAt(grappleLocation);
 
@@ -86,10 +87,6 @@ public class Grappler : MonoBehaviour
                 // get the GameObject that was hit
                 hitObject = hit.transform.gameObject;
 
-                
-
-               
-
                 //Debug.Log("Thing hit");
 
                 if (hitObject.CompareTag("Grapple-able"))
@@ -104,12 +101,6 @@ public class Grappler : MonoBehaviour
                         fpsInput.StateChange(FPSInput.State.GrappleStart);
                         inrange = false;
                         //Debug.Log("Start reeling");
-                        
-
-
-                        
-
-
                     }
                     
                 }
