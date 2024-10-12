@@ -10,42 +10,24 @@ public class Health : MonoBehaviour
 
     private int healthNumber;
     private Text healthDisplay;
-    private PlayerPlacer playerPlacer;
     private float healTimer = 0.0f;
+    private DeathMenu DMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         healthDisplay = GameObject.Find("Health").GetComponent<Text>();
         healthNumber = maxHealth;
-
+        DMenu = GameObject.Find("DeathCanvas").GetComponent<DeathMenu>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject respawnObject = GameObject.FindGameObjectWithTag("Respawn");
-        if (respawnObject != null)
-        {
-            playerPlacer = respawnObject.GetComponent<PlayerPlacer>();
-        }
-
-        if (playerPlacer == null)
-        {
-            Debug.LogError("Health Script: PlayerPlacer script not found on the Respawn object.");
-        }
-        /*Debug.Log("Health" + healthNumber);*/
         if (healthNumber <= 0)
         {
-            if (playerPlacer != null)
-            {
-                playerPlacer.RespawnPlayer();
-                Debug.Log("PlayerPlaced Called");// call lthe player placer script
-            } else
-            {
-                Debug.Log("No player placer in scene");
-            }
+            DMenu.youDied();
 
             healthNumber = maxHealth;
 
