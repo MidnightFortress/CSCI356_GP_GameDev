@@ -13859,9 +13859,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7951251749818171183, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
+      propertyPath: zipSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: -7951251749818171183, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
       propertyPath: targetZip
       value: 
       objectReference: {fileID: 831966979}
+    - target: {fileID: -7951251749818171183, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
+      propertyPath: arrivalThreshold
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5499062118179503733, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -35966,9 +35974,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7951251749818171183, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
+      propertyPath: zipSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: -7951251749818171183, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
       propertyPath: targetZip
       value: 
       objectReference: {fileID: 831966979}
+    - target: {fileID: -7951251749818171183, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
+      propertyPath: arrivalThreshold
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5499062118179503733, guid: 78f6773b607524a70bc9c5e4a587028e, type: 3}
       propertyPath: m_RootOrder
       value: 5

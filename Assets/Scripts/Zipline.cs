@@ -59,7 +59,7 @@ public class Zipline : MonoBehaviour, Interactable
         // disable player control while zipping
         player.GetComponent<FPSInput>().enabled = false;
         grappleRope.SetActive(false);
-        player.transform.position += Vector3.up * 0.5f;         // little move upward to simulate grabbing on to zipline pulley
+        player.transform.position += Vector3.up * 0.7f;         // little move upward to simulate grabbing on to zipline pulley
 
         // set zip pulley to be parent of player
         player.transform.SetParent(zipPulley.transform);
@@ -82,8 +82,8 @@ public class Zipline : MonoBehaviour, Interactable
         player.GetComponent<FPSInput>().enabled = true;                 // enable player control script
         grappleRope.SetActive(true);
 
-        // add player back to child of do not destroy on load
-        
+        // add player back to child of DontDestroyOnLoad object
+        DontDestroyOnLoad(player);
 
         Destroy(zipPulley);  // destroy zip pulley object
         zipPulley = null;    // set variable to null
