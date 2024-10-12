@@ -35,19 +35,17 @@ public class Droids : MonoBehaviour
    
     void Update()
     {
-        if (helth <= 0) 
+        if (distoryed)  // don't run update code if droid is destroyed
+            return;
+
+        if (helth <= 0)     // destory droid if health depleted
         {
-            if (!distoryed)
-            {
-                distoryed = true;
-                explosionEffect.Play();
-                roationObject.SetActive(false);
-                Destroy(this);
-            }
+            distoryed = true;
+            StartCoroutine(Explode());
         }
         else
         {
-            DetectPlayer();
+            DetectPlayer();     // target and attack player
 
             if (isPlayerInRange && !hasShot)
             {
@@ -60,6 +58,41 @@ public class Droids : MonoBehaviour
         }
 
 
+        //if (helth <= 0) 
+        //{
+        //    if (!distoryed)
+        //    {
+        //        distoryed = true;
+        //        explosionEffect.Play();
+        //        roationObject.SetActive(false);
+        //        Destroy(this);
+        //    }
+        //}
+        //else
+        //{
+        //    DetectPlayer();
+
+        //    if (isPlayerInRange && !hasShot)
+        //    {
+        //        StartCoroutine(ShootLaser());
+        //    }
+        //    else if (!isPlayerInRange && !hasShot)
+        //    {
+        //        ReturnToOriginalRoation();
+        //    }
+        //}
+
+
+    }
+
+    // cooroutine to run explosion effect on droid destroy
+    public IEnumerator Explode()
+    {
+        explosionEffect.Play();
+        
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(gameObject);
     }
 
     private void ReturnToOriginalRoation()
