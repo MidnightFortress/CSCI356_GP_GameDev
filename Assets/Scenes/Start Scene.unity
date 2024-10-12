@@ -640,6 +640,7 @@ GameObject:
   - component: {fileID: 87279659}
   - component: {fileID: 87279658}
   - component: {fileID: 87279657}
+  - component: {fileID: 87279660}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -697,6 +698,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87279660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87279656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e428bfa60fdd1b7458ff2202598381cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &89343304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,7 +2810,7 @@ GameObject:
   - component: {fileID: 264575549}
   - component: {fileID: 264575548}
   m_Layer: 5
-  m_Name: DeathUI
+  m_Name: DeathUIStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8142,8 +8155,9 @@ GameObject:
   - component: {fileID: 999002277}
   - component: {fileID: 999002276}
   - component: {fileID: 999002280}
+  - component: {fileID: 999002281}
   m_Layer: 5
-  m_Name: DeathCanvas
+  m_Name: DeathCanvasMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8246,6 +8260,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathMenuUI: {fileID: 264575546}
+--- !u!114 &999002281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999002275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e428bfa60fdd1b7458ff2202598381cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1007238220
 GameObject:
   m_ObjectHideFlags: 0
@@ -10306,8 +10332,9 @@ GameObject:
   - component: {fileID: 1293998529}
   - component: {fileID: 1293998528}
   - component: {fileID: 1293998532}
+  - component: {fileID: 1293998533}
   m_Layer: 5
-  m_Name: PauseCanvas
+  m_Name: PauseCanvasMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10410,6 +10437,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1435191442}
+--- !u!114 &1293998533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293998526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e428bfa60fdd1b7458ff2202598381cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1297447608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7296286906602412904, guid: 651462a05e5064b7fbaf23e4ba65e160, type: 3}
@@ -11064,7 +11103,7 @@ GameObject:
   - component: {fileID: 1435191445}
   - component: {fileID: 1435191444}
   m_Layer: 5
-  m_Name: PauseUI
+  m_Name: PauseUIStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

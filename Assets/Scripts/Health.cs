@@ -18,13 +18,13 @@ public class Health : MonoBehaviour
     {
         healthDisplay = GameObject.Find("Health").GetComponent<Text>();
         healthNumber = maxHealth;
-        DMenu = GameObject.Find("DeathCanvas").GetComponent<DeathMenu>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        DMenu = GameObject.Find("DeathCanvas").GetComponent<DeathMenu>();
         if (healthNumber <= 0)
         {
             DMenu.youDied();
