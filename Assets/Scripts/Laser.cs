@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
     private Vector3 direction;
     private float speed;
-    private float damage;
+    private int damage;
 
     void Start(){
         Destroy(gameObject, 5f);
@@ -17,7 +17,7 @@ public class Laser : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    public void setDirection(Vector3 shootDirection, float laserSpeed, float laserDamage)
+    public void setDirection(Vector3 shootDirection, float laserSpeed, int laserDamage)
     {
         direction = shootDirection.normalized;
         speed = laserSpeed;
@@ -31,7 +31,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<FPSInput>().TakeDamage(damage); //change when get player script
+            collision.gameObject.GetComponent<Health>().lowerHealth(damage); //change when get player script
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "droid" | collision.gameObject.tag == "droidCrit")

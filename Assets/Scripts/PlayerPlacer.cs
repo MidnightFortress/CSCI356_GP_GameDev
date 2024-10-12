@@ -6,6 +6,7 @@ public class PlayerPlacer : MonoBehaviour
     private Vector3 startPos;
     private Quaternion startRot;
     GameObject respawnObject;
+   
 
     private void OnEnable()
     {
@@ -20,12 +21,27 @@ public class PlayerPlacer : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+
         RespawnPlayer();
     }
 
     public void RespawnPlayer()
     {
-      respawnObject = GameObject.FindGameObjectWithTag("Respawn");
+        MusicManager musicMe = FindAnyObjectByType<MusicManager>();
+        if (musicMe.CurrentSong == null)
+        {
+            Debug.LogError("CurrentSong is not assigned in MusicManager!");
+        }
+        else if (musicMe.CurrentSong == null)
+        {
+            Debug.LogError("CurrentSong is not assigned in MusicManager!");
+        }
+        else
+        {
+            musicMe.CurrentSong.mute = true;
+        }
+
+        respawnObject = GameObject.FindGameObjectWithTag("Respawn");
         if (respawnObject != null)
         {
             
@@ -66,6 +82,7 @@ public class PlayerPlacer : MonoBehaviour
                 {
                     charControl.enabled = true; // Turn on the CharacterController
                 }
+
 
                 // this if gets the player and places them in the spawn point. tyhere is a bit of debugging as well, to make sure it is working
                 // had a bit of a problem with this as sometimes it works sometimes it doesnt. If it doesnt work it just leaves the player in the same position as scene 1
