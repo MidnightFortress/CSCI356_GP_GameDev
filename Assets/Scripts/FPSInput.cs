@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
-using UnityEditor.ShaderKeywordFilter;
+
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
