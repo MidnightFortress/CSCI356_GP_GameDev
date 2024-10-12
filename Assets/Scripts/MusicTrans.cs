@@ -32,6 +32,8 @@ public class MusicTrans : MonoBehaviour
         musicMe.CurrentSong.mute = false;
         // just mutes and unmutes it super simple
         // this is for on enter of trigger itll change teh song to the chosen song in ther trigger
+
+
     }
 
     private void OnTriggerExit(Collider other)
