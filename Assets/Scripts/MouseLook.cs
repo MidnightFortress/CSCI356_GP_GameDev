@@ -7,7 +7,6 @@ public class MouseLook: MonoBehaviour
 {
     [SerializeField] private Light flashLight;
     Camera cam;
- 
     
     // how quickly to look arouund
     public enum RotationA
@@ -68,42 +67,46 @@ public class MouseLook: MonoBehaviour
     // Update is called once per framea
     void Update()
     {
-        if (rotationA == RotationA.mX)
+        if (!PauseMenu.GamePaused)
         {
-            transform.Rotate(0, Input.GetAxis("Mouse X") * senH, 0);
-            // making the rotation for movement x
+            if (rotationA == RotationA.mX)
+            {
+                transform.Rotate(0, Input.GetAxis("Mouse X") * senH, 0);
+                // making the rotation for movement x
+            }
+            else if (rotationA == RotationA.mY)
+            {
+                // if enum my is used
+                vRot -= Input.GetAxis("Mouse Y") * senV;
+                vRot = Mathf.Clamp(vRot, minV, maxV);
+                // movement of the mouse and the axis of the y-axis, clamps it at the min and max vert and horizontal
+                float hRot = transform.localEulerAngles.y;
+
+                transform.localEulerAngles = new Vector3(vRot, hRot, 0);
+                // sets the local rotation using the ver and hor rotation so there is no roll 
+
+            }
+            else
+            // used for option y and x
+            {
+                vRot -= Input.GetAxis("Mouse Y") * senV;
+                vRot = Mathf.Clamp(vRot, minV, maxV);
+                // same as the top ones
+
+                float delta = Input.GetAxis("Mouse X") * senH;
+                float hRot = transform.localEulerAngles.y + delta;
+                // updates the yaw based on mouse movement
+
+                transform.localEulerAngles = new Vector3(vRot, hRot, 0);
+                // no roll
+            }
+
+            if (Input.GetKeyDown(KeyCode.F) && flashLight != null)
+            {
+                flashLight.gameObject.SetActive(!flashLight.gameObject.activeSelf);
+            }
+            // toggle the f button to turn the flashlight on and off
+            // dont forget to add the spotlight to all the player characters as there are multiple at the moment
         }
-        else if (rotationA == RotationA.mY)
-        {
-            // if enum my is used
-            vRot -= Input.GetAxis("Mouse Y") * senV;
-            vRot = Mathf.Clamp(vRot, minV, maxV);
-            // movement of the mouse and the axis of the y-axis, clamps it at the min and max vert and horizontal
-            float hRot = transform.localEulerAngles.y;
-
-            transform.localEulerAngles = new Vector3(vRot, hRot, 0);
-            // sets the local rotation using the ver and hor rotation so there is no roll 
-
-        }
-        else
-        // used for option y and x
-        {
-            vRot -= Input.GetAxis("Mouse Y") * senV;
-            vRot = Mathf.Clamp(vRot, minV, maxV);
-            // same as the top ones
-
-            float delta = Input.GetAxis("Mouse X") * senH;
-            float hRot = transform.localEulerAngles.y + delta;
-            // updates the yaw based on mouse movement
-
-            transform.localEulerAngles = new Vector3(vRot, hRot, 0);
-            // no roll
-        }
-
-        if (Input.GetKeyDown(KeyCode.F) && flashLight != null) {
-            flashLight.gameObject.SetActive(!flashLight.gameObject.activeSelf);
-        }
-        // toggle the f button to turn the flashlight on and off
-        // dont forget to add the spotlight to all the player characters as there are multiple at the moment
     }
 }
