@@ -7,17 +7,19 @@ public class Zipline : MonoBehaviour, Interactable
     [SerializeField] private Zipline targetZip;
     [SerializeField] private float zipSpeed = 400f;
     [SerializeField] private float zipScale = 0.2f;
-    [SerializeField] private float arrivalThreshold = 0.5f;
+    [SerializeField] private float arrivalThreshold = 0.8f;
 
     public Transform zipTransform;
 
     private bool zipping = false;
     private GameObject zipPulley;
     private GameObject player;
+    private GameObject grappleRope;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");    // ref to player object
+        player = GameObject.FindGameObjectWithTag("Player");            // ref to player object
+        grappleRope = GameObject.FindGameObjectWithTag("Grapple-rope"); // ref to grapple rope
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class Zipline : MonoBehaviour, Interactable
 
         // disable player control while zipping
         player.GetComponent<FPSInput>().enabled = false;
+        grappleRope.SetActive(false);
         player.transform.position += Vector3.up * 0.5f;         // little move upward to simulate grabbing on to zipline pulley
 
         // set zip pulley to be parent of player
@@ -71,11 +74,16 @@ public class Zipline : MonoBehaviour, Interactable
             return;
 
         // get player reference
-        GameObject player = zipPulley.transform.GetChild(0).gameObject;
+        //GameObject player = zipPulley.transform.GetChild(0).gameObject;
 
         // reset player to finish using zipline
-        player.GetComponent<FPSInput>().enabled = true;                 // enable player control script                                                                
         player.transform.SetParent(null);                               // detach player form pulley
+        player.GetComponent<FPSInput>().ResetVelocity();
+        player.GetComponent<FPSInput>().enabled = true;                 // enable player control script
+        grappleRope.SetActive(true);
+
+        // add player back to child of do not destroy on load
+        
 
         Destroy(zipPulley);  // destroy zip pulley object
         zipPulley = null;    // set variable to null
