@@ -49,14 +49,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dcc0701124c1c24da19a89eeb3f4ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 10
-  shootDelay: 2
+  detectionRange: 40
+  shootDelay: 0.5
   critObject: {fileID: 5418151600839428123}
   roationObject: {fileID: 7493541489765842597}
   laserPrefab: {fileID: 6058441913261238060, guid: bff41801fa2cc89499cd137712840ae3, type: 3}
   shootPoint: {fileID: 3790613012737795692}
-  laserSpeed: 10
-  returnRotationSpeed: 2
+  laserSpeed: 30
+  returnRotationSpeed: 0.5
   helth: 100
   DroidDamage: 10
   critModifier: 2

@@ -5,13 +5,13 @@ using UnityEngine;
 public class Droids : MonoBehaviour
 {
 
-    [SerializeField] private float detectionRange = 10f;
-    [SerializeField] private float shootDelay = 2f;
+    [SerializeField] private float detectionRange = 40f;
+    [SerializeField] private float shootDelay = .5f;
     [SerializeField] private GameObject critObject;
     [SerializeField] private GameObject roationObject;
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private Transform shootPoint;
-    [SerializeField] private float laserSpeed = 10f;
+    [SerializeField] private float laserSpeed = 30f;
     [SerializeField] private float returnRotationSpeed = 2f;
     [SerializeField] private float helth = 100f;
     [SerializeField] private int DroidDamage = 10;
