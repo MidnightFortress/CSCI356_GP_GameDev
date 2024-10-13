@@ -7,14 +7,22 @@ using UnityEngine;
 public class HandGunPickup : MonoBehaviour
 {
     GameObject handGun;
+    GameObject weaponHolder;
 
     private void OnTriggerEnter(Collider other)
     {
         // check player has collided
         if (other.transform.CompareTag("Player"))
         {
+            // disable other RH weapon scripts on child camera
+            other.transform.GetChild(0).GetComponent<MachineGun>().enabled = false;
+            weaponHolder.transform.GetChild(1).gameObject.SetActive(false);
+
             // enable handgun script
             other.transform.GetChild(0).GetComponent<HandGun>().enabled = true;
+
+            // enable handgun game object
+            weaponHolder.transform.GetChild(0).gameObject.SetActive(true);
 
             // also need to add to inventory
 
@@ -28,6 +36,7 @@ public class HandGunPickup : MonoBehaviour
     {
         // get the hand gun game object reference
         handGun = transform.GetChild(0).gameObject;
+        weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
     }
 
     // Update is called once per frame

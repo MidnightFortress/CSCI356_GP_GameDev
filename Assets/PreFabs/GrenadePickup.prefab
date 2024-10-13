@@ -252,6 +252,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3997863141549729751}
     m_Modifications:
+    - target: {fileID: 7341231637949611756, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8686676043940202628, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
       propertyPath: m_Name
       value: Grenade

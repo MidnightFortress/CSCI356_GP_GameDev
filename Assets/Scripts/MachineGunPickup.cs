@@ -8,19 +8,21 @@ public class MachineGunPickup : MonoBehaviour
 {
 
     GameObject machineGun;
+    GameObject weaponHolder;
 
     private void OnTriggerEnter(Collider other)
     {
         // check player has collided
         if (other.transform.CompareTag("Player"))
         {
-            // disable other weapon scripts on child camera
+            // disable other RH weapon scripts on child camera
             other.transform.GetChild(0).GetComponent<HandGun>().enabled = false;
-            other.transform.GetChild(0).GetComponent<Grenade>().enabled = false;
+            weaponHolder.transform.GetChild(0).gameObject.SetActive(false);
 
             // enable machine gun script behaviour
             other.transform.GetChild(0).GetComponent<MachineGun>().enabled = true;
-
+            // enable maching gun game object
+            weaponHolder.transform.GetChild(1).gameObject.SetActive(true);
 
             // start the pick up respawn coroutine
             StartCoroutine(RespawnPickup(machineGun));
@@ -32,6 +34,7 @@ public class MachineGunPickup : MonoBehaviour
     {
         // get machine gun game object reference
         machineGun = transform.GetChild(0).gameObject;
+        weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
     }
 
     // Update is called once per frame
