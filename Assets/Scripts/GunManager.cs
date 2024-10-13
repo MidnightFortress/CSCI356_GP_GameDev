@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GunManager : MonoBehaviour
 {
-    public List<GameObject> weapons = new List<GameObject>(); // List of picked-up weapons
-    private int selectedWeapon = 0; // Index of the currently selected weapon
+    public List<GameObject> weapons = new List<GameObject>(); 
+    private int selectedWeapon = 0; 
 
     void Update()
     {
