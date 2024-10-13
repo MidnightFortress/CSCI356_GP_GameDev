@@ -8113,7 +8113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &975438875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11121,7 +11121,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7341231637949611756, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
+    - {fileID: 6903127141974006915, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15000,9 +15002,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 8686676043940202628, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
-  grenadeImpulse: 5
-  chargeRate: 0.2
-  maxThrowForce: 15
+  grenadeImpulse: 15
+  chargeRate: 2
+  maxThrowForce: 50
 --- !u!114 &1787327958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15017,7 +15019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.2
   spread: 10
-  mgDamage: 10
+  mgDamage: 12
 --- !u!1 &1797061534
 GameObject:
   m_ObjectHideFlags: 0
@@ -17697,7 +17699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2120814718
 MonoBehaviour:
   m_ObjectHideFlags: 0

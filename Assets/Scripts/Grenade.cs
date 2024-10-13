@@ -7,6 +7,7 @@ public class Grenade : MonoBehaviour
     // store camera component
     private Camera cam;
     private GameObject weaponHolder;
+    //private GameObject player;
 
     // store grenade prefab
     public GameObject grenadePrefab;
@@ -14,9 +15,10 @@ public class Grenade : MonoBehaviour
     // grenade throw force variables
     public float grenadeImpulse = 5.0f;     // default throw impulse
     private float chargedImpulse;           // holds charged throw impulse
-    public float chargeRate = 0.2f;         // rate of throw impulse charge
-    public float maxThrowForce = 15.0f;     // maximum throw impulse
+    public float chargeRate = 0.5f;         // rate of throw impulse charge
+    public float maxThrowForce = 30.0f;     // maximum throw impulse
     private float chargeTimer = 0;          // timer to implement impulse charging
+    private bool isThrowing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +27,22 @@ public class Grenade : MonoBehaviour
         cam = GetComponent<Camera>();
         chargedImpulse = grenadeImpulse; // set charged to default impulse
         weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        // check if player dead -> stop all actions
+        //if(player.GetComponent<Health>().IsPlayerDead())
+        //{
+        //    StopAllCoroutines();
+        //    return;
+        //}
+
+        if (isThrowing)
+            return;
+
         // charge grenade throw
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -45,36 +58,38 @@ public class Grenade : MonoBehaviour
         // throw the grenade
         if (Input.GetKeyUp(KeyCode.G))
         {
+            Transform grenadeTrans = weaponHolder.transform.GetChild(2).transform;
+            weaponHolder.transform.GetChild(2).gameObject.SetActive(false);
+
+            // create grenade object
+            GameObject grenade = Instantiate(grenadePrefab, transform);
+
+            // set grenade forward 2 units
+            grenade.transform.position = grenadeTrans.position + grenadeTrans.forward * 2;
+
+            Rigidbody target = grenade.GetComponent<Rigidbody>();
+
+            // calculate throwing impulse
+            Vector3 impulse = grenadeTrans.forward * chargedImpulse;
+
+            // apply throw impulse force to grenade object
+            target.AddForceAtPosition(impulse, grenadeTrans.position, ForceMode.Impulse);
+
+            grenade.transform.SetParent(null);  // release grenade from camera control once thrown
+
+            chargedImpulse = grenadeImpulse;  // reset to default throw strength
+
             StartCoroutine(ThrowGrenade());
         }
-        
     }
 
     public IEnumerator ThrowGrenade()
     {
-        Transform grenadeTrans = weaponHolder.transform.GetChild(2).transform;
-        weaponHolder.transform.GetChild(2).gameObject.SetActive(false);
-
-        // create grenade object
-        GameObject grenade = Instantiate(grenadePrefab, transform);
-
-        // set grenade forward 2 units
-        grenade.transform.position = grenadeTrans.position + grenadeTrans.forward * 2;
-
-        Rigidbody target = grenade.GetComponent<Rigidbody>();
-
-        // calculate throwing impulse
-        Vector3 impulse = cam.transform.forward * chargedImpulse;
-
-        // apply throw impulse force to grenade object
-        target.AddForceAtPosition(impulse, cam.transform.position, ForceMode.Impulse);
-
-        grenade.transform.SetParent(null);  // release grenade from camera control once thrown
-
-        chargedImpulse = grenadeImpulse;  // reset to default throw strength
+        isThrowing = true;
 
         yield return new WaitForSeconds(2);
 
+        isThrowing = false;
         weaponHolder.transform.GetChild(2).gameObject.SetActive(true);
     }
 }

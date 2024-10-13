@@ -39,7 +39,7 @@ public class MusicTrans : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         MusicManager musicMe = FindAnyObjectByType<MusicManager>();
-       bool ContinuedPlaying = musicMe.CurrentSong.gameObject.CompareTag("Accoustic");
+        bool ContinuedPlaying = musicMe.CurrentSong.gameObject.CompareTag("Accoustic");
         Debug.Log("Bool music playing: " +  ContinuedPlaying);
         bool isAPlayer = other.gameObject.CompareTag("Player");
         if (isAPlayer)

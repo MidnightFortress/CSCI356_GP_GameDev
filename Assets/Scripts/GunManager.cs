@@ -55,7 +55,7 @@ public class GunManager : MonoBehaviour
             {
                 weapons[i].SetActive(false);
                 DisableWeaponScript(weapons[i]); 
-                Debug.Log("Disabled");
+                //Debug.Log("Disabled");
                 // disable teh script from the selected index
 
             }
@@ -73,7 +73,7 @@ public class GunManager : MonoBehaviour
             if (handGunScript != null)
             {
                 handGunScript.enabled = true;
-                Debug.Log("Hand Enabled");
+                //Debug.Log("Hand Enabled");
             }
             // enabling and disabling
 
@@ -87,7 +87,7 @@ public class GunManager : MonoBehaviour
             if (machineGunScript != null)
             {
                 machineGunScript.enabled = true;
-                Debug.Log("Mach Enabled");
+                //Debug.Log("Mach Enabled");
             }
             // enabling the selected script
         }
@@ -107,7 +107,7 @@ public class GunManager : MonoBehaviour
             if (handGunScript != null)
             {
                 handGunScript.enabled = false;
-                Debug.Log("Hand Dis");
+                //Debug.Log("Hand Dis");
             }
             // disabling script
         }
@@ -119,7 +119,7 @@ public class GunManager : MonoBehaviour
             if (machineGunScript != null)
             {
                 machineGunScript.enabled = false;
-                Debug.Log("mac Dis");
+                //Debug.Log("mac Dis");
             }
 
             // read above
@@ -131,7 +131,7 @@ public class GunManager : MonoBehaviour
         if (!weapons.Contains(newWeapon))
         {
             weapons.Add(newWeapon);
-            Debug.Log("Weapon count" + weapons.Count);
+            //Debug.Log("Weapon count" + weapons.Count);
             if (weapons.Count == 1)
             {
                 selectedWeapon = 0;
