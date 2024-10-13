@@ -13,6 +13,8 @@ TagManager:
   - Grapple-able
   - Grapple-rope
   - WeaponHolder
+  - HandGun
+  - MachineGun
   layers:
   - Default
   - TransparentFX
