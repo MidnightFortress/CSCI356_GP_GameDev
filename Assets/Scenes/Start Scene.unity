@@ -14610,6 +14610,8 @@ GameObject:
   - component: {fileID: 1787327952}
   - component: {fileID: 1787327951}
   - component: {fileID: 1787327956}
+  - component: {fileID: 1787327958}
+  - component: {fileID: 1787327957}
   - component: {fileID: 1787327955}
   m_Layer: 0
   m_Name: Main Camera
@@ -14756,6 +14758,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gDamage: 50
+--- !u!114 &1787327957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787327949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d52ab0a69b44fe0a540b947461cc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 0}
+  grenadeImpulse: 5
+  chargeRate: 0.2
+  maxThrowForce: 15
+--- !u!114 &1787327958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787327949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c468b362e8b452aa6b80d32a22bdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.2
+  spread: 10
+  mgDamage: 10
 --- !u!1 &1797061534
 GameObject:
   m_ObjectHideFlags: 0
