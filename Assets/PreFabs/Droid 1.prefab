@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 4051600577094920880}
   - component: {fileID: 1751085985080530263}
   - component: {fileID: 8359865105500585465}
+  - component: {fileID: -4182151804731818793}
   m_Layer: 0
   m_Name: Droid 1
   m_TagString: droid
@@ -170,6 +171,7 @@ MonoBehaviour:
   DroidDamage: 10
   critModifier: 2
   explosionEffect: {fileID: 3408068704008915859}
+  isBoss: 0
 --- !u!108 &8359865105500585465
 Light:
   m_ObjectHideFlags: 0
@@ -232,6 +234,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!136 &-4182151804731818793
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149195385040006878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.62
+  m_Height: 3.02
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3289278914087259976
 GameObject:
   m_ObjectHideFlags: 0
