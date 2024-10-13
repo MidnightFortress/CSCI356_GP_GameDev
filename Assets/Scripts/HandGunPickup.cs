@@ -8,26 +8,58 @@ public class HandGunPickup : MonoBehaviour
 {
     GameObject handGun;
     GameObject weaponHolder;
+    GunManager gunManager;
 
     private void OnTriggerEnter(Collider other)
     {
         // check player has collided
+        /*   if (other.transform.CompareTag("Player"))
+           {
+               gunManager = other.GetComponentInChildren<GunManager>();
+
+               // disable other RH weapon scripts on child camera
+               other.transform.GetChild(0).GetComponent<MachineGun>().enabled = false;
+               weaponHolder.transform.GetChild(1).gameObject.SetActive(false);
+
+               if (gunManager != null)
+               {
+               // enable handgun script
+               other.transform.GetChild(0).GetComponent<HandGun>().enabled = true;
+
+               // enable handgun game object
+               weaponHolder.transform.GetChild(0).gameObject.SetActive(true);
+
+                   // also need to add to inventory
+                   gunManager.AddWeapon(weaponHolder.transform.GetChild(0).gameObject);
+
+                   // start respawn coroutine
+                   StartCoroutine(RespawnPickup(handGun));
+               }
+
+           }*/
+
         if (other.transform.CompareTag("Player"))
         {
-            // disable other RH weapon scripts on child camera
-            other.transform.GetChild(0).GetComponent<MachineGun>().enabled = false;
-            weaponHolder.transform.GetChild(1).gameObject.SetActive(false);
+            gunManager = other.GetComponentInChildren<GunManager>();
 
-            // enable handgun script
-            other.transform.GetChild(0).GetComponent<HandGun>().enabled = true;
+            if (gunManager != null)
+            {
+                // Disable other RH weapon scripts on child camera
+                other.transform.GetChild(0).GetComponent<MachineGun>().enabled = false;
+                weaponHolder.transform.GetChild(1).gameObject.SetActive(false);
 
-            // enable handgun game object
-            weaponHolder.transform.GetChild(0).gameObject.SetActive(true);
+                // enable the currernt weapon
+                other.transform.GetChild(0).GetComponent<HandGun>().enabled = true;
 
-            // also need to add to inventory
+                gunManager.AddWeapon(weaponHolder.transform.GetChild(0).gameObject);
+              // add the gun to the wepon manager
 
-            // start respawn coroutine
-            StartCoroutine(RespawnPickup(handGun));
+                // Start respawn coroutine
+                StartCoroutine(RespawnPickup(handGun));
+            } else
+            {
+                Debug.Log("No gunmanger");
+            }
         }
     }
 
