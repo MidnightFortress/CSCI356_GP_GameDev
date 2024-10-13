@@ -67,7 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db581a5137ee4f83ba120ba36bd7cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
 --- !u!1 &6192836695845087150
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +260,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8607826203188262641, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8686676043940202628, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
       propertyPath: m_Name
       value: Grenade
@@ -340,6 +343,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7341231637949611756, guid: e84fa2bc3d8954a2b8e9f3aecaa0cbf6, type: 3}
     - {fileID: 6903127141974006915, guid: e84fa2bc3d8954a2b8e9f3aecaa0cbf6, type: 3}
+    - {fileID: 7341231637949611756, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
+    - {fileID: 6903127141974006915, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8706210073007685356, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
