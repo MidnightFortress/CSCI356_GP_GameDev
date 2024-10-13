@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Droids : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Droids : MonoBehaviour
     [SerializeField] private int DroidDamage = 10;
     [SerializeField] private float critModifier = 2f;
     [SerializeField] private ParticleSystem explosionEffect;
+    [SerializeField] private bool isBoss;
 
     private bool distoryed = false;
     private Transform player;
@@ -38,10 +40,15 @@ public class Droids : MonoBehaviour
         if (distoryed)  // don't run update code if droid is destroyed
             return;
 
-        if (helth <= 0)     // destory droid if health depleted
+        if (helth <= 0 && !isBoss)     // destory droid if health depleted
         {
             distoryed = true;
             StartCoroutine(Explode());
+        }
+        else if (helth <= 0 && isBoss)
+        {
+            distoryed = true;
+            StartCoroutine(ExplodeBoss());
         }
         else
         {
@@ -91,6 +98,23 @@ public class Droids : MonoBehaviour
         explosionEffect.Play();
         
         yield return new WaitForSeconds(0.5f);
+
+        Destroy(gameObject);
+    }
+
+    public IEnumerator ExplodeBoss()
+    {
+        explosionEffect.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        GameObject canvas = GameObject.Find("PlayerCanvas");
+        if (canvas != null)
+        {
+            Destroy(canvas); // Remove Canvas from DontDestroyOnLoad
+        }
+
+        SceneManager.LoadScene(4);
 
         Destroy(gameObject);
     }
