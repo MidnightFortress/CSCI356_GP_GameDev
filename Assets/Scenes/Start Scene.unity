@@ -14982,9 +14982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 8686676043940202628, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
-  grenadeImpulse: 5
-  chargeRate: 0.2
-  maxThrowForce: 15
+  grenadeImpulse: 8
+  chargeRate: 2
+  maxThrowForce: 50
 --- !u!114 &1787327958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14999,7 +14999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.2
   spread: 10
-  mgDamage: 10
+  mgDamage: 12
 --- !u!1 &1797061534
 GameObject:
   m_ObjectHideFlags: 0
