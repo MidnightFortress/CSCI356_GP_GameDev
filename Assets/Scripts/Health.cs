@@ -12,13 +12,13 @@ public class Health : MonoBehaviour
     private Text healthDisplay;
     private float healTimer = 0.0f;
     private DeathMenu DMenu;
+    private bool playerDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
         healthDisplay = GameObject.Find("Health").GetComponent<Text>();
         healthNumber = maxHealth;
-
     }
 
     // Update is called once per frame
@@ -27,6 +27,8 @@ public class Health : MonoBehaviour
         DMenu = GameObject.Find("DeathCanvasMap").GetComponent<DeathMenu>();
         if (healthNumber <= 0)
         {
+            playerDead = true;
+
             DMenu.youDied();
 
             healthNumber = maxHealth;
@@ -61,5 +63,15 @@ public class Health : MonoBehaviour
     private void OnGUI()
     {
         healthDisplay.text = healthNumber.ToString();
+    }
+
+    public bool IsPlayerDead()
+    {
+        return playerDead;
+    }
+
+    public void SetPlayerAlive()
+    {
+        playerDead = false;
     }
 }

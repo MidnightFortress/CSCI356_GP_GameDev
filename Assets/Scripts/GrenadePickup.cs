@@ -7,15 +7,15 @@ public class GrenadePickup : MonoBehaviour
 {
     GameObject grenade;
     GameObject weaponHolder;
-    private SceneManager sceneManager;
-    public string sceneToLoad;
+    //private SceneManager sceneManager;
+    //public string sceneToLoad;
 
     private void OnTriggerEnter(Collider other)
     {
         // check player has collided
         if (other.transform.CompareTag("Player"))
         {
-            SceneManager.LoadScene(sceneToLoad);
+            //SceneManager.LoadScene(sceneToLoad);
 
             // enable grenade script behaviour
             other.transform.GetChild(0).GetComponent<Grenade>().enabled = true;

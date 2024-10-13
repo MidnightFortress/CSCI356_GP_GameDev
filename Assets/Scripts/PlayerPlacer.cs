@@ -81,6 +81,7 @@ public class PlayerPlacer : MonoBehaviour
                 if (charControl != null)
                 {
                     charControl.enabled = true; // Turn on the CharacterController
+                    healthMe.SetPlayerAlive(); // mark player as not dead
                 }
 
 
@@ -105,7 +106,7 @@ public class PlayerPlacer : MonoBehaviour
     {
         respawnObject = GameObject.FindGameObjectWithTag("Respawn");
         startPos = new Vector3(191,92,240);
-       respawnObject.transform.position = startPos;
+        respawnObject.transform.position = startPos;
         Debug.Log("Respawn point updated.");
         // this is so we can create a checkpoint, and the player doesnt have to reload and walk all the way back after death
     }

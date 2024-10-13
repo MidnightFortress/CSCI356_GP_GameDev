@@ -11121,7 +11121,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7341231637949611756, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
+    - {fileID: 6903127141974006915, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15000,7 +15002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 8686676043940202628, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
-  grenadeImpulse: 8
+  grenadeImpulse: 15
   chargeRate: 2
   maxThrowForce: 50
 --- !u!114 &1787327958

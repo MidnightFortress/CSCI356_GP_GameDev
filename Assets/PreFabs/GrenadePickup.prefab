@@ -53,7 +53,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.87
+  m_Radius: 0.93
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1271304103594178184
 MonoBehaviour:
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db581a5137ee4f83ba120ba36bd7cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
 --- !u!1 &6192836695845087150
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,9 +253,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3997863141549729751}
     m_Modifications:
+    - target: {fileID: 6903127141974006915, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7341231637949611756, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8686676043940202628, guid: f72a56c72caf2418ba1d84109bf20b98, type: 3}
       propertyPath: m_Name

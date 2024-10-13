@@ -8,7 +8,7 @@ public class MachineGun : MonoBehaviour
     public float fireRate = 0.2f;   // pause time between firing
     public float spread = 10.0f;    // radius offset from target centre
     private bool canShoot = true;   // disable/enable firing
-    public int mgDamage = 1;        // machine gun damage inflicted
+    public int mgDamage = 12;        // machine gun damage inflicted
 
     // Start is called before the first frame update
     void Start()
@@ -58,13 +58,6 @@ public class MachineGun : MonoBehaviour
 
                 Debug.Log(droid.name);
             }
-            //Shootable shootable = hitObject.GetComponent<Shootable>();
-
-            //if (shootable != null)
-            //{
-            //    shootable.takeDamage(mgDamage);      // reduce object health from hit damage
-            //    shootable.reduceScale(mgDamage);            // reduce size from hit damage
-            //}
         }
 
         // instantiate sphere projectile, scale and move to point of impact
