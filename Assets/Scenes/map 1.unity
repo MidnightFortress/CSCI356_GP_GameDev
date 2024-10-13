@@ -996,6 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc72e6fcadfc4ff9959cf07e1fa4430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevator: {fileID: 0}
 --- !u!4 &96409089
 Transform:
   m_ObjectHideFlags: 0
@@ -7667,7 +7668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503271429}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MusicTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20518,7 +20519,7 @@ GameObject:
   - component: {fileID: 1259708721}
   - component: {fileID: 1259708720}
   - component: {fileID: 1259708719}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MetalTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27728,7 +27729,7 @@ GameObject:
   - component: {fileID: 1668365396}
   - component: {fileID: 1668365395}
   - component: {fileID: 1668365394}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MetalTrigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29564,7 +29565,7 @@ GameObject:
   - component: {fileID: 1801150102}
   - component: {fileID: 1801150101}
   - component: {fileID: 1801150100}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MetalTrigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33749,7 +33750,7 @@ GameObject:
   - component: {fileID: 2031803101}
   - component: {fileID: 2031803100}
   - component: {fileID: 2031803099}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MetalTrigger (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34011,7 +34012,7 @@ GameObject:
   - component: {fileID: 2040007647}
   - component: {fileID: 2040007646}
   - component: {fileID: 2040007650}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LoadDoorTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34877,6 +34878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc72e6fcadfc4ff9959cf07e1fa4430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevator: {fileID: 0}
 --- !u!1 &2113413336
 GameObject:
   m_ObjectHideFlags: 0

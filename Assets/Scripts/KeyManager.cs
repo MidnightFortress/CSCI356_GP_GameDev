@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class KeyInventory : MonoBehaviour
 {
-    //private string currentKey;
-
     private List<string> keys = new List<string>();  // store as strings instantiate as required
 
     private void Awake()
     {
-        // default to no key on start
-        //currentKey = "None";
+        // for testing
+        //keys.Add("Red Key");
+        //keys.Add("Blue Key");
     }
 
     public void AddKey(string key)
     {
-        //this.currentKey = key;
-
         keys.Add(key);
 
         Debug.Log("Added the " + key + " to inventory");

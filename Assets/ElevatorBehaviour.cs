@@ -9,6 +9,8 @@ public class ElevatorBehaviour : MonoBehaviour, Interactable
 
     private bool moving = false;
 
+    private Transform originalPos;
+
     // movement start time
     private float startTime;
 
@@ -18,6 +20,11 @@ public class ElevatorBehaviour : MonoBehaviour, Interactable
     // distance between points
     private float totalDistance;
 
+    private void Awake()
+    {
+        originalPos = pointA;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +32,7 @@ public class ElevatorBehaviour : MonoBehaviour, Interactable
         startTime = Time.time;
 
         // calculate distance to next point
-        totalDistance = Vector3.Distance(pointA.position, pointB.position);
+        totalDistance = Vector3.Distance(pointA.position, pointB.position);   
     }
 
     // Update is called once per frame
@@ -45,9 +52,6 @@ public class ElevatorBehaviour : MonoBehaviour, Interactable
 
         // use the above to interpolate between points
         transform.position = Vector3.Lerp(pointA.position, pointB.position, percentTravelled);
-
-        // include platform rotation based on point transform rotation
-        transform.rotation = Quaternion.Lerp(pointA.rotation, pointB.rotation, percentTravelled);
 
         if (moving && percentTravelled >= 1) // have reached the next point (get next way point if any)
         {
@@ -86,5 +90,16 @@ public class ElevatorBehaviour : MonoBehaviour, Interactable
     private void OnTriggerExit(Collider other)
     {
         other.transform.SetParent(null);
+    }
+
+    public void ResetPosition()
+    {
+        if (pointA.position != originalPos.position)
+        {
+            // rest elevator to top
+            transform.position = originalPos.position;
+            // reset elevator way points
+            (pointA, pointB) = (pointB, pointA);
+        }
     }
 }
