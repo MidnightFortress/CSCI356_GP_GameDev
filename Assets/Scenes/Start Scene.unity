@@ -8127,6 +8127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elevator: {fileID: 0}
+  block: {fileID: 0}
 --- !u!4 &975438876
 Transform:
   m_ObjectHideFlags: 0
@@ -14989,7 +14990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfe62e4be6c640adb87414f1d836dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gDamage: 50
+  gDamage: 35
 --- !u!114 &1787327957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15018,9 +15019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c468b362e8b452aa6b80d32a22bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.2
+  fireRate: 0.15
   spread: 10
-  mgDamage: 12
+  mgDamage: 25
 --- !u!1 &1797061534
 GameObject:
   m_ObjectHideFlags: 0
@@ -17714,6 +17715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elevator: {fileID: 0}
+  block: {fileID: 0}
 --- !u!4 &2120814719
 Transform:
   m_ObjectHideFlags: 0
