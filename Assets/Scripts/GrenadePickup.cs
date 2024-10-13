@@ -5,18 +5,16 @@ using UnityEngine;
 public class GrenadePickup : MonoBehaviour
 {
     GameObject grenade;
+    GameObject weaponHolder;
 
     private void OnTriggerEnter(Collider other)
     {
         // check player has collided
         if (other.transform.CompareTag("Player"))
         {
-            // disable other weapon scripts on child camera
-            other.transform.GetChild(0).GetComponent<HandGun>().enabled = false;
-            other.transform.GetChild(0).GetComponent<MachineGun>().enabled = false;
-
             // enable grenade script behaviour
             other.transform.GetChild(0).GetComponent<Grenade>().enabled = true;
+            weaponHolder.transform.GetChild(2).gameObject.SetActive(true);
 
             // start respawn coroutine
             StartCoroutine(RespawnPickup(grenade));
@@ -28,6 +26,7 @@ public class GrenadePickup : MonoBehaviour
     {
         // get grenade game object reference
         grenade = transform.GetChild(0).gameObject;
+        weaponHolder = GameObject.FindGameObjectWithTag("WeaponHolder");
     }
 
     // Update is called once per frame

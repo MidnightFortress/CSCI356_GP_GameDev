@@ -12,6 +12,7 @@ TagManager:
   - droidCrit
   - Grapple-able
   - Grapple-rope
+  - WeaponHolder
   layers:
   - Default
   - TransparentFX

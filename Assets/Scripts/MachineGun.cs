@@ -51,6 +51,13 @@ public class MachineGun : MonoBehaviour
             GameObject hitObject = hit.transform.gameObject;
 
             // check if droid
+            if (hitObject.CompareTag("droid"))
+            {
+                GameObject droid = hitObject.transform.root.gameObject;
+                droid.GetComponent<Droids>().TakeDamage(mgDamage, false);
+
+                Debug.Log(droid.name);
+            }
             //Shootable shootable = hitObject.GetComponent<Shootable>();
 
             //if (shootable != null)
