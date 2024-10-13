@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 48216480}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: PlayerCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8113,7 +8113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &975438875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12417,7 +12417,7 @@ MonoBehaviour:
   gravity: -9.8
   fallDisable: 0.1
   fallDamageSpeed: -10
-  fallDamageMultiplier: 3
+  fallDamageMultiplier: 8
   state: 0
   grappRef: {fileID: 0}
 --- !u!114 &1534372610
@@ -12553,7 +12553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfbad12ed79472d4bb3a047cbd5c8021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 100
   waitTime: 10
 --- !u!114 &1534372617
 MonoBehaviour:
@@ -17699,7 +17699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2120814718
 MonoBehaviour:
   m_ObjectHideFlags: 0
