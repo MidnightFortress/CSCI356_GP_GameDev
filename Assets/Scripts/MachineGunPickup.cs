@@ -9,23 +9,34 @@ public class MachineGunPickup : MonoBehaviour
 
     GameObject machineGun;
     GameObject weaponHolder;
+    GunManager gunManager;
 
     private void OnTriggerEnter(Collider other)
     {
         // check player has collided
         if (other.transform.CompareTag("Player"))
         {
-            // disable other RH weapon scripts on child camera
-            other.transform.GetChild(0).GetComponent<HandGun>().enabled = false;
-            weaponHolder.transform.GetChild(0).gameObject.SetActive(false);
 
-            // enable machine gun script behaviour
-            other.transform.GetChild(0).GetComponent<MachineGun>().enabled = true;
-            // enable maching gun game object
-            weaponHolder.transform.GetChild(1).gameObject.SetActive(true);
+            gunManager = other.GetComponentInChildren<GunManager>();
 
-            // start the pick up respawn coroutine
-            StartCoroutine(RespawnPickup(machineGun));
+            if (gunManager != null)
+            {
+
+                // disable other RH weapon scripts on child camera
+                other.transform.GetChild(0).GetComponent<HandGun>().enabled = false;
+                weaponHolder.transform.GetChild(0).gameObject.SetActive(false);
+
+                // enable machine gun script behaviour
+                other.transform.GetChild(0).GetComponent<MachineGun>().enabled = true;
+                // enable maching gun game object
+                weaponHolder.transform.GetChild(1).gameObject.SetActive(true);
+
+                gunManager.AddWeapon(weaponHolder.transform.GetChild(1).gameObject);
+                // passing teh object to the gun manager
+
+                // start the pick up respawn coroutine
+                StartCoroutine(RespawnPickup(machineGun));
+            }
         }
     }
 
