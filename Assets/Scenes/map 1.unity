@@ -22781,7 +22781,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357855507}
-  - component: {fileID: 1357855506}
+  - component: {fileID: 1357855508}
   m_Layer: 0
   m_Name: NPC Spawner 3
   m_TagString: Untagged
@@ -22789,18 +22789,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1357855506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357855505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7583bc41eb14f38429e2ee3593e4abae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1357855507
 Transform:
   m_ObjectHideFlags: 0
@@ -22809,13 +22797,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357855505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 244.816, y: 56.722, z: 354.9}
+  m_LocalPosition: {x: 210.27, y: 57.28, z: 354.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357855508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357855505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1fa961c622b784fba1950a933bca28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsToSpawn:
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  wanderRadius: 10
+  wanderTimer: 5
+  followRange: 15
+  stopDistance: 10
+  respawnTimer: 15
 --- !u!1 &1365647603
 GameObject:
   m_ObjectHideFlags: 0
@@ -30856,7 +30870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1854936678}
-  - component: {fileID: 1854936677}
+  - component: {fileID: 1854936679}
   m_Layer: 0
   m_Name: NPC Spawner 2
   m_TagString: Untagged
@@ -30864,18 +30878,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1854936677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854936676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7583bc41eb14f38429e2ee3593e4abae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1854936678
 Transform:
   m_ObjectHideFlags: 0
@@ -30891,6 +30893,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854936679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854936676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1fa961c622b784fba1950a933bca28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsToSpawn:
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  - {fileID: 3778837598140916377, guid: c6f75d523fa1cf74c87f3509c005a7d4, type: 3}
+  wanderRadius: 10
+  wanderTimer: 5
+  followRange: 15
+  stopDistance: 10
+  respawnTimer: 10
 --- !u!1 &1855547080
 GameObject:
   m_ObjectHideFlags: 0
