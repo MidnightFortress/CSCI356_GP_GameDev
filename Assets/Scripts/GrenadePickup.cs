@@ -7,7 +7,6 @@ public class GrenadePickup : MonoBehaviour
 {
     GameObject grenade;
     GameObject weaponHolder;
-    private SceneManager sceneManager;
     public string sceneToLoad;
 
     private void OnTriggerEnter(Collider other)

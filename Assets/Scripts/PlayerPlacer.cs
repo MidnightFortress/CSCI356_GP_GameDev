@@ -6,7 +6,8 @@ public class PlayerPlacer : MonoBehaviour
     private Vector3 startPos;
     private Quaternion startRot;
     GameObject respawnObject;
-   
+    public GameObject elevator;
+    public GameObject block;
 
     private void OnEnable()
     {
@@ -68,6 +69,18 @@ public class PlayerPlacer : MonoBehaviour
                 fpsInput.enabled = false;
 
                 fpsInput.ResetVelocity();
+
+                // check if elevator present
+                if (elevator != null)
+                {
+                    // reset elevator
+                    elevator.GetComponent<ElevatorBehaviour>().ResetPosition();
+                }
+
+                if (block != null)
+                {
+                    block.GetComponent<DropBlock>().ResetBlock();
+                }
 
                 player.transform.position = startPos;
                 player.transform.rotation = startRot;
